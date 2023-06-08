@@ -11,10 +11,12 @@ class MatchResult:
         self.startY = startY
         self.endX = endX
         self.endY = endY
-    
+        self.width = endX - startX
+        self.height = endY - startY  
 
 class MatchTemplate:
     def OnScreen(templatePath, threshold, debugPath):
+        result = None
         screenshot = pyautogui.screenshot()
         screenshotDebugPath = debugPath + "\screenshot.png"
         screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
@@ -37,3 +39,15 @@ class MatchTemplate:
                 result = MatchResult(startX,startY,endX,endY)
                 cv2.imwrite(screenshotDebugPath, screenshot)
                 return result
+
+class FindStuff:
+    def GameWindow():
+        menuBar = MatchTemplate.OnScreen("C:\data\git\jelleholtkamp\CPPRed\TemplateMatching\WindowBar.png",0.8,"C:\data\git\jelleholtkamp\CPPRed\Debug\WindowBar")
+        if menuBar != None:
+            startX = menuBar.startX
+            endX = menuBar.endX
+            startY = menuBar.startY + menuBar.height
+            endY = menuBar.endY + 864 
+            result = MatchResult(startX,startY,endX,endY)
+            pyautogui.screenshot(region=(startX,startY,result.width,result.height)).save("C:\data\git\jelleholtkamp\CPPRed\Debug\GameWindow\screenshot.png")
+            return result
