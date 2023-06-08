@@ -16,12 +16,10 @@ class MatchResult:
 class MatchTemplate:
     def OnScreen(templatePath, threshold, debugPath):
         screenshot = pyautogui.screenshot()
-        # screenshotDebugPath = debugPath + "\screenshot.png"
-        # cv2.imwrite(screenshotDebugPath, screenshot)
+        screenshotDebugPath = debugPath + "\screenshot.png"
         screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
         screenshot_gray = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-
-        print(templatePath)
+        cv2.imwrite(screenshotDebugPath, screenshot)
             
         template = cv2.imread(templatePath, 0)  
 
@@ -30,11 +28,12 @@ class MatchTemplate:
         matchResult = cv2.matchTemplate(screenshot_gray, template, cv2.TM_CCOEFF_NORMED)
         location = np.where(matchResult >= threshold)
         for pt in zip(*location[::-1]):
-            cv2.rectangle(screenshot, pt, (pt[0] + w, pt[1] + h), (0, 255, 255), 2)
+            cv2.rectangle(screenshot, pt, (pt[0] + w, pt[1] + h), (255, 0, 0), 2)
             if pt != None:
                 (minVal, maxVal, minLoc, maxLoc) = cv2.minMaxLoc(matchResult)
                 (startX, startY) = maxLoc
                 endX = startX + template.shape[1]
                 endY = startY + template.shape[0]
                 result = MatchResult(startX,startY,endX,endY)
+                cv2.imwrite(screenshotDebugPath, screenshot)
                 return result
