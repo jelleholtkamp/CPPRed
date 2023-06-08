@@ -286,3 +286,63 @@ class PartyPokemon:
         self.Pokemon4.move6 = pokemon4Move6Name
         pokemon4Move6PP = (session.get_memory_value(0xD267))
         self.Pokemon4.move6PP = pokemon4Move6PP
+
+class ActivePokemon:
+    def __init__(self):
+        self.species = 'None'
+        self.hp = 0
+        self.maxHp = 0
+        self.level = 0
+        self.status = 0
+        self.move1 = 0
+        self.move1PP = 0
+        self.move2 = 0
+        self.move2PP = 0
+        self.move3 = 0
+        self.move3PP = 0
+        self.move4 = 0
+        self.move4PP = 0
+
+    def Update(self, session):
+        activePokemonSpecies = (session.get_memory_value(0xD014))
+        activePokemonSpeciesName = PokemonData.PokemonSpecies(activePokemonSpecies).name
+        self.species = activePokemonSpeciesName
+
+        activePokemonHp1 = (session.get_memory_value(0xD015))
+        activePokemonHp2 = (session.get_memory_value(0xD016))
+        self.hp = (activePokemonHp1 + activePokemonHp2)
+
+        activePokemonMaxHp1 = (session.get_memory_value(0xD023))
+        activePokemonMaxHp2 = (session.get_memory_value(0xD024))
+        self.maxHp = (activePokemonMaxHp1 + activePokemonMaxHp2)
+
+        activePokemonLevel = (session.get_memory_value(0xD022))
+        self.level = activePokemonLevel
+
+        activePokemonStatus = (session.get_memory_value(0xD018))
+        self.status = activePokemonStatus
+
+        activePokemonMove1 = (session.get_memory_value(0xD01C))
+        activePokemonMove1Name = PokemonData.Moves(activePokemonMove1).name
+        self.move1 = activePokemonMove1Name
+        activePokemonMove1PP = (session.get_memory_value(0xD02D))
+        self.move1PP = activePokemonMove1PP
+
+        activePokemonMove2 = (session.get_memory_value(0xD01D))
+        activePokemonMove2Name = PokemonData.Moves(activePokemonMove2).name
+        self.move2 = activePokemonMove2Name
+        activePokemonMove2PP = (session.get_memory_value(0xD02E))
+        self.move2PP = activePokemonMove2PP
+
+        activePokemonMove3 = (session.get_memory_value(0xD01E))
+        activePokemonMove3Name = PokemonData.Moves(activePokemonMove3).name
+        self.move3 = activePokemonMove3Name
+        activePokemonMove3PP = (session.get_memory_value(0xD02F))
+        self.move3PP = activePokemonMove3PP
+
+        activePokemonMove4 = (session.get_memory_value(0xD01F))
+        activePokemonMove4Name = PokemonData.Moves(activePokemonMove4).name
+        self.move4 = activePokemonMove4Name
+        activePokemonMove4PP = (session.get_memory_value(0xD030))
+        self.move4PP = activePokemonMove4PP
+        
