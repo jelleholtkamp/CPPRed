@@ -18,7 +18,7 @@ else:
     exit(1)
 
 quiet = "--quiet" in sys.argv
-session = PyBoy(filename, window_type="headless" if quiet else "SDL2", window_scale=3, debug=quiet, game_wrapper=True)
+session = PyBoy(filename, window_type="headless" if quiet else "SDL2", scale=6, debug=quiet)
 session.set_emulation_speed(0)
 assert session.cartridge_title() == "POKEMON RED"
 
