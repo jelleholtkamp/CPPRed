@@ -57,6 +57,8 @@ while not session.tick():
         # print("Y:" + str(cursorPosition.y))
         print(cursorPosition.selection)
         print(cursorPosition.menu)
+
+        Commands.MoveCursor.To("Fight", session)
         # print("LastMenuItemID" + str(cursorPosition.lastMenuItemId))
         # print("previouslySelectedMenuItemId" + str(cursorPosition.previouslySelectedMenuItemId))
         # print("lastPartyMenuPosition" + str(cursorPosition.lastPartyMenuPosition))
