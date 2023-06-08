@@ -345,4 +345,89 @@ class ActivePokemon:
         self.move4 = activePokemonMove4Name
         activePokemonMove4PP = (session.get_memory_value(0xD030))
         self.move4PP = activePokemonMove4PP
+
+class EnemyPokemon:
+    def __init__(self):
+        self.species = 'None'
+        self.hp = 0
+        self.level = 0
+        self.status = 0
+        self.move1 = 0
+        self.move1PP = 0
+        self.move2 = 0
+        self.move2PP = 0
+        self.move3 = 0
+        self.move3PP = 0
+        self.move4 = 0
+        self.move4PP = 0
+
+    def Update(self, session):
+        enemyActivePokemonSpecies = (session.get_memory_value(0xCFD8))
+        enemyActivePokemonSpeciesName = PokemonData.PokemonSpecies(enemyActivePokemonSpecies).name
+        self.species = enemyActivePokemonSpeciesName
+
+        enemyPokemonHP1 = (session.get_memory_value(0xCFE6))
+        enemyPokemonHP2 = (session.get_memory_value(0xCFE7))
         
+        enemyPokemonMaxHP1 = (session.get_memory_value(0xCFF4))
+        enemyPokemonMaxHP2 = (session.get_memory_value(0xCFF5))
+        enemyPokemonMaxHP = (enemyPokemonMaxHP1 + enemyPokemonMaxHP2)
+
+        self.hp = (enemyPokemonHP1 + enemyPokemonHP2) / enemyPokemonMaxHP * 100
+
+        enemyPokemonLevel = (session.get_memory_value(0XCFF3))
+        self.level = enemyPokemonLevel
+
+        enemyPokemonStatus = (session.get_memory_value(0xCFE9))
+        self.status = enemyPokemonStatus
+
+class Battle:
+    def __init__(self):
+        self.status = 'NotInBattle'
+        self.activePokemonSpecies = 'None'
+        self.activePokemonHP = 0
+        self.activePokemonMaxHP = 0
+        self.activePokemonLevel = 0
+        self.activePokemonStatus = 0
+        self.activePokemonMove1 = 0
+        self.activePokemonMove1PP = 0
+        self.activePokemonMove2 = 0
+        self.activePokemonMove2PP = 0
+        self.activePokemonMove3 = 0
+        self.activePokemonMove3PP = 0
+        self.activePokemonMove4 = 0
+        self.activePokemonMove4PP = 0
+
+        self.enemyPokemonSpecies = 'None'
+        self.enemyPokemonHP = 0
+        self.enemyPokemonLevel = 0
+        self.enemyPokemonStatus = 0
+        
+    
+    def Update(self, session):
+        battleStatus = (session.get_memory_value(0xD057))
+        if(battleStatus == 1):
+            self.status = "InBattle"
+            playerActivePokemon = ActivePokemon()
+            playerActivePokemon.Update(session)
+            self.activePokemonSpecies = playerActivePokemon.species
+            self.activePokemonHP = playerActivePokemon.hp
+            self.activePokemonMaxHP = playerActivePokemon.maxHp
+            self.activePokemonLevel = playerActivePokemon.level
+            self.activePokemonStatus = playerActivePokemon.status
+            self.activePokemonMove1 = playerActivePokemon.move1
+            self.activePokemonMove1PP = playerActivePokemon.move1PP
+            self.activePokemonMove2 = playerActivePokemon.move2
+            self.activePokemonMove2PP = playerActivePokemon.move2PP
+            self.activePokemonMove3 = playerActivePokemon.move3
+            self.activePokemonMove3PP = playerActivePokemon.move3PP
+            self.activePokemonMove4 = playerActivePokemon.move4
+            self.activePokemonMove4PP = playerActivePokemon.move4PP
+
+            enemyActivePokemon = EnemyPokemon()
+            enemyActivePokemon.Update(session)
+            self.enemyPokemonSpecies = enemyActivePokemon.species
+            self.enemyPokemonHP = enemyActivePokemon.hp
+            self.enemyPokemonLevel = enemyActivePokemon.level
+            self.enemyPokemonStatus = enemyActivePokemon.status
+
