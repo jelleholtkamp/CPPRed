@@ -1,6 +1,24 @@
 import classes.PokemonData as PokemonData
 import pyboy
 
+class CursorPosition:
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+        self.selection = "None"
+        self.menu = "None"
+
+    def Update(self, session):
+        cursorCoordinatesY = (session.get_memory_value(0xC224))
+        cursorCoordinatesX = (session.get_memory_value(0xC225))
+        cursorSelection = (session.get_memory_value(0xC226))
+        cursorBitMask = (session.get_memory_value(0xC229))
+        
+        self.x = cursorCoordinatesX
+        self.y = cursorCoordinatesY
+        self.selection = cursorSelection
+        self.menu = "Test"
+
 class Pokemon:
     def __init__(self):
         self.species = 'None'
@@ -287,6 +305,170 @@ class PartyPokemon:
         pokemon4Move6PP = (session.get_memory_value(0xD267))
         self.Pokemon4.move6PP = pokemon4Move6PP
 
+class Items:
+    def __init__(self):
+        self.item1 = 'None'
+        self.item1Quantity = 0
+        self.item2 = 'None'
+        self.item2Quantity = 0
+        self.item3 = 'None'
+        self.item3Quantity = 0
+        self.item4 = 'None'
+        self.item4Quantity = 0
+        self.item5 = 'None'
+        self.item5Quantity = 0
+        self.item6 = 'None'
+        self.item6Quantity = 0
+        self.item7 = 'None'
+        self.item7Quantity = 0
+        self.item8 = 'None'
+        self.item8Quantity = 0
+        self.item9 = 'None'
+        self.item9Quantity = 0
+        self.item10 = 'None'
+        self.item10Quantity = 0
+        self.item11 = 'None'
+        self.item11Quantity = 0
+        self.item12 = 'None'
+        self.item12Quantity = 0
+        self.item13 = 'None'
+        self.item13Quantity = 0
+        self.item14 = 'None'
+        self.item14Quantity = 0
+        self.item15 = 'None'
+        self.item15Quantity = 0
+        self.item16 = 'None'
+        self.item16Quantity = 0
+        self.item17 = 'None'
+        self.item17Quantity = 0
+        self.item18 = 'None'
+        self.item18Quantity = 0
+        self.item19 = 'None'
+        self.item19Quantity = 0
+        self.item20 = 'None'
+        self.item20Quantity = 0
+        
+    def Update(self, session): 
+        bagItem1Index = (session.get_memory_value(0xD31E))
+        bagItem1Qty = (session.get_memory_value(0xD31F))
+        bagItem1Name = PokemonData.Items(bagItem1Index).name
+        self.item1 = bagItem1Name
+        self.item1Quantity = bagItem1Qty
+
+        bagItem2Index = (session.get_memory_value(0xD320))
+        bagItem2Qty = (session.get_memory_value(0xD321))
+        bagItem2Name = PokemonData.Items(bagItem2Index).name
+        self.item2 = bagItem2Name
+        self.item2Quantity = bagItem2Qty
+
+        bagItem3Index = (session.get_memory_value(0xD322))
+        bagItem3Qty = (session.get_memory_value(0xD323))
+        bagItem3Name = PokemonData.Items(bagItem3Index).name
+        self.item3 = bagItem3Name
+        self.item3Quantity = bagItem3Qty
+
+        bagItem4Index = (session.get_memory_value(0xD324))
+        bagItem4Qty = (session.get_memory_value(0xD325))
+        bagItem4Name = PokemonData.Items(bagItem4Index).name
+        self.item4 = bagItem4Name
+        self.item4Quantity = bagItem4Qty
+
+        bagItem5Index = (session.get_memory_value(0xD326))
+        bagItem5Qty = (session.get_memory_value(0xD327))
+        bagItem5Name = PokemonData.Items(bagItem4Index).name
+        self.item5 = bagItem5Name
+        self.item5Quantity = bagItem5Qty
+
+        bagItem6Index = (session.get_memory_value(0xD328))
+        bagItem6Qty = (session.get_memory_value(0xD329))
+        bagItem6Name = PokemonData.Items(bagItem6Index).name
+        self.item6 = bagItem6Name
+        self.item6Quantity = bagItem6Qty
+
+        bagItem7Index = (session.get_memory_value(0xD32A))
+        bagItem7Qty = (session.get_memory_value(0xD32B))
+        bagItem7Name = PokemonData.Items(bagItem7Index).name
+        self.item7 = bagItem7Name
+        self.item7Quantity = bagItem7Qty
+
+        bagItem8Index = (session.get_memory_value(0xD32C))
+        bagItem8Qty = (session.get_memory_value(0xD32D))
+        bagItem8Name = PokemonData.Items(bagItem8Index).name
+        self.item8 = bagItem8Name
+        self.item8Quantity = bagItem8Qty
+
+        bagItem9Index = (session.get_memory_value(0xD32E))
+        bagItem9Qty = (session.get_memory_value(0xD32F))
+        bagItem9Name = PokemonData.Items(bagItem9Index).name
+        self.item9 = bagItem9Name
+        self.item9Quantity = bagItem9Qty
+
+        bagItem10Index = (session.get_memory_value(0xD330))
+        bagItem10Qty = (session.get_memory_value(0xD331))
+        bagItem10Name = PokemonData.Items(bagItem10Index).name
+        self.item10 = bagItem10Name
+        self.item10Quantity = bagItem10Qty
+        
+        bagItem11Index = (session.get_memory_value(0xD332))
+        bagItem11Qty = (session.get_memory_value(0xD333))
+        bagItem11Name = PokemonData.Items(bagItem11Index).name
+        self.item11 = bagItem11Name
+        self.item11Quantity = bagItem11Qty
+
+        bagItem12Index = (session.get_memory_value(0xD334))
+        bagItem12Qty = (session.get_memory_value(0xD335))
+        bagItem12Name = PokemonData.Items(bagItem12Index).name
+        self.item12 = bagItem12Name
+        self.item12Quantity = bagItem12Qty
+
+        bagItem13Index = (session.get_memory_value(0xD336))
+        bagItem13Qty = (session.get_memory_value(0xD337))
+        bagItem13Name = PokemonData.Items(bagItem13Index).name
+        self.item13 = bagItem13Name
+        self.item13Quantity = bagItem13Qty
+
+        bagItem14Index = (session.get_memory_value(0xD338))
+        bagItem14Qty = (session.get_memory_value(0xD339))
+        bagItem14Name = PokemonData.Items(bagItem14Index).name
+        self.item14 = bagItem14Name
+        self.item14Quantity = bagItem14Qty
+
+        bagItem15Index = (session.get_memory_value(0xD33A))
+        bagItem15Qty = (session.get_memory_value(0xD33B))
+        bagItem15Name = PokemonData.Items(bagItem15Index).name
+        self.item15 = bagItem15Name
+        self.item15Quantity = bagItem15Qty
+
+        bagItem16Index = (session.get_memory_value(0xD33C))
+        bagItem16Qty = (session.get_memory_value(0xD33D))
+        bagItem16Name = PokemonData.Items(bagItem16Index).name
+        self.item16 = bagItem16Name
+        self.item16Quantity = bagItem16Qty
+
+        bagItem17Index = (session.get_memory_value(0xD33E))
+        bagItem17Qty = (session.get_memory_value(0xD33F))
+        bagItem17Name = PokemonData.Items(bagItem17Index).name
+        self.item17 = bagItem17Name
+        self.item17Quantity = bagItem17Qty
+
+        bagItem18Index = (session.get_memory_value(0xD340))
+        bagItem18Qty = (session.get_memory_value(0xD341))
+        bagItem18Name = PokemonData.Items(bagItem18Index).name
+        self.item18 = bagItem18Name
+        self.item18Quantity = bagItem18Qty
+        
+        bagItem19Index = (session.get_memory_value(0xD342))
+        bagItem19Qty = (session.get_memory_value(0xD343))
+        bagItem19Name = PokemonData.Items(bagItem4Index).name
+        self.item19 = bagItem19Name
+        self.item19Quantity = bagItem19Qty
+
+        bagItem20Index = (session.get_memory_value(0xD344))
+        bagItem20Qty = (session.get_memory_value(0xD345))
+        bagItem20Name = PokemonData.Items(bagItem4Index).name
+        self.item20 = bagItem20Name
+        self.item20Quantity = bagItem20Qty
+
 class ActivePokemon:
     def __init__(self):
         self.species = 'None'
@@ -402,7 +584,7 @@ class Battle:
         self.enemyPokemonHP = 0
         self.enemyPokemonLevel = 0
         self.enemyPokemonStatus = 0
-        
+
     
     def Update(self, session):
         battleStatus = (session.get_memory_value(0xD057))
