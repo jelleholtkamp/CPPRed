@@ -51,3 +51,4 @@ class FindStuff:
             result = MatchResult(startX,startY,endX,endY)
             pyautogui.screenshot(region=(startX,startY,result.width,result.height)).save("C:\data\git\jelleholtkamp\CPPRed\Debug\GameWindow\screenshot.png")
             return result
+    

@@ -53,12 +53,19 @@ while not session.tick():
         cursorPosition = GameData.CursorPosition()
         cursorPosition.Update(session)
 
-        print("X:" + str(cursorPosition.x))
-        print("Y:" + str(cursorPosition.y))
-        print("Menu:" + str(cursorPosition.menu))
-        print("Position: "+ str(cursorPosition.selection))
+        # print("X:" + str(cursorPosition.x))
+        # print("Y:" + str(cursorPosition.y))
+        print(cursorPosition.selection)
+        print(cursorPosition.menu)
+        # print("LastMenuItemID" + str(cursorPosition.lastMenuItemId))
+        # print("previouslySelectedMenuItemId" + str(cursorPosition.previouslySelectedMenuItemId))
+        # print("lastPartyMenuPosition" + str(cursorPosition.lastPartyMenuPosition))
+        # print("lastItemMenuPosition" + str(cursorPosition.lastItemMenuPosition))
+        # print(cursorPosition.lastStartBattleMenuPosition)
+        # print("lastStartBattleMenuPosition" + str(cursorPosition.firstDisplayedMenuItemId))
+        # print("lastStartBattleMenuPosition" + str(cursorPosition.itemHighlitedWithSelect))
 
-
+        
 
 
 session.stop()

@@ -1,23 +1,63 @@
 import classes.PokemonData as PokemonData
 import pyboy
+class MenuBitmaskContent:
+    def __init__(self):
+        self._11 = ["Unknown"]
+        self._17 = ["Fight","Item"]
+        self._33 = ["Pokémon","Run"]
+
+class MenuBitmaskNames:
+    def __init__(self):
+        self._11 = "BattleStart????"
+        self._17 = "Battle"
+        self._33 = "Battle"
 
 class CursorPosition:
     def __init__(self):
-        self.x = 0
-        self.y = 0
+        # self.x = 0
+        # self.y = 0
         self.selection = "None"
         self.menu = "None"
+        # self.lastMenuItemId = "None"
+        # self.previouslySelectedMenuItemId = "None"
+        # self.lastPartyMenuPosition = "None"
+        # self.lastItemMenuPosition = "None"
+        # self.lastStartBattleMenuPosition = "None"
+        # self.firstDisplayedMenuItemId = "None"
+        # self.itemHighlitedWithSelect = "None"
 
     def Update(self, session):
-        cursorCoordinatesY = (session.get_memory_value(0xC224))
-        cursorCoordinatesX = (session.get_memory_value(0xC225))
-        cursorSelection = (session.get_memory_value(0xC226))
-        cursorBitMask = (session.get_memory_value(0xC229))
-        
-        self.x = cursorCoordinatesX
-        self.y = cursorCoordinatesY
-        self.selection = cursorSelection
-        self.menu = "Test"
+        # coordinatesY = (session.get_memory_value(0xCC24))
+        # coordinatesX = (session.get_memory_value(0xCC25))
+        selection = (session.get_memory_value(0xCC26))
+        # lastMenuItemId = (session.get_memory_value(0xCC28))
+        bitMask = (session.get_memory_value(0xCC29))
+        # previouslySelectedMenuItemId = (session.get_memory_value(0xCC2A))
+        # lastPartyMenuPosition = (session.get_memory_value(0xCC2B))
+        # lastItemMenuPosition = (session.get_memory_value(0xCC2C))
+        # lastStartBattleMenuPosition = (session.get_memory_value(0xCC2D))
+        # itemHighlitedWithSelect = (session.get_memory_value(0xCC35))
+        # firstDisplayedMenuItemId = (session.get_memory_value(0xCC36))
+
+        # self.x = coordinatesX
+        # self.y = coordinatesY
+        # self.selection = selection
+        # self.lastMenuItemId = lastMenuItemId
+        # self.bitMask = bitMask
+        # self.previouslySelectedMenuItemId = previouslySelectedMenuItemId
+        # self.lastPartyMenuPosition = lastPartyMenuPosition
+        # self.lastItemMenuPosition = lastItemMenuPosition
+        # self.lastStartBattleMenuPosition = lastStartBattleMenuPosition
+        # self.itemHighlitedWithSelect = itemHighlitedWithSelect
+        # self.firstDisplayedMenuItemId = firstDisplayedMenuItemId
+
+
+        attribute_name = f"_{bitMask}"
+        bitmaskName = getattr(MenuBitmaskNames(), attribute_name)
+        bitmaskOptions = getattr(MenuBitmaskContent(), attribute_name)
+
+        self.menu = bitmaskName
+        self.selection = bitmaskOptions[selection]
 
 class Pokemon:
     def __init__(self):
