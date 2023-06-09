@@ -11,6 +11,3 @@ masks = [
 # for mask in masks:
 #     print (mask["startX"])
 result = ComputerVision.MatchTemplate.InGameWindow("TemplateMatching\\Convo.png", 0.8, masks)
-print(result.startX)
-print(result.startY)
-
