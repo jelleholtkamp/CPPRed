@@ -1,4 +1,5 @@
 import classes.PokemonData as PokemonData
+import classes.ComputerVision as ComputerVision
 import pyboy
 class MenuBitmaskContent:
     def __init__(self):
@@ -18,65 +19,44 @@ class MenuBitmaskNames:
         self._33 = "Battle"
         self._199 = "Battle"
 
-class CursorPosition:
-    def __init__(self):
-        # self.x = 0
-        # self.y = 0
-        self.selection = "None"
-        self.menu = "None"
-        self.lastMenuItemId = "None"
-        # self.previouslySelectedMenuItemId = "None"
-        # self.lastPartyMenuPosition = "None"
-        # self.lastItemMenuPosition = "None"
-        # self.lastStartBattleMenuPosition = "None"
-        # self.firstDisplayedMenuItemId = "None"
-        # self.itemHighlitedWithSelect = "None"
+class Map:
+    def Get(session):
+        maps = {
+            '0': 'Pallet Town',
+            '1': 'Viridian City',
+            '2': 'Pewter City', 
+            '12': 'Route 1',
+            '13': 'Route 2',
+            '37': 'Red\'s House',
+            '39': 'Blue\'s House',
+            '40': 'Oak\'s Lab',
+            '41': 'Viridan Poké Center',
+            '47': 'Route 2 Gatehouse',
+            '50': 'Viridian Forrest Gatehouse',
+            '51': 'Viridian Forrest',
+            '58': 'Pewter Poké Center'
+        } 
+        mapId = (session.get_memory_value(0xD35E))
+        mapName = maps[str(mapId)]
 
-    def Update(self, session):
-        # coordinatesY = (session.get_memory_value(0xCC24))
-        # coordinatesX = (session.get_memory_value(0xCC25))
-        selection = (session.get_memory_value(0xCC26))
-        lastMenuItemId = (session.get_memory_value(0xCC28))
-        bitMask = (session.get_memory_value(0xCC29))
-        # previouslySelectedMenuItemId = (session.get_memory_value(0xCC2A))
-        # lastPartyMenuPosition = (session.get_memory_value(0xCC2B))
-        # lastItemMenuPosition = (session.get_memory_value(0xCC2C))
-        # lastStartBattleMenuPosition = (session.get_memory_value(0xCC2D))
-        # itemHighlitedWithSelect = (session.get_memory_value(0xCC35))
-        # firstDisplayedMenuItemId = (session.get_memory_value(0xCC36))
+        return mapName
 
-        # self.x = coordinatesX
-        # self.y = coordinatesY
-        # self.selection = selection
-        # self.lastMenuItemId = lastMenuItemId
-        # self.bitMask = bitMask
-        # self.previouslySelectedMenuItemId = previouslySelectedMenuItemId
-        # self.lastPartyMenuPosition = lastPartyMenuPosition
-        # self.lastItemMenuPosition = lastItemMenuPosition
-        # self.lastStartBattleMenuPosition = lastStartBattleMenuPosition
-        # self.itemHighlitedWithSelect = itemHighlitedWithSelect
-        # self.firstDisplayedMenuItemId = firstDisplayedMenuItemId
+class Tiles:
+    def GetActive(session):
+        activeTile = (session.)
+        return activeTile
+class Triggers:
+    def CheckConvo(session):
+        convo = ComputerVision.MatchTemplate.OnScreen()
+        
+    
 
 
-        # attribute_name = f"_{bitMask}"
-        # bitmaskName = getattr(MenuBitmaskNames(), attribute_name)
-        # bitmaskOptions = getattr(MenuBitmaskContent(), attribute_name)
 
-        self.bitmask = bitMask
-        # self.menu = bitmaskName
-        print(bitMask)
-        # print(bitmaskName)
-        # print(bitmaskOptions)
 
-        # if bitmaskName == "Items":
-        #     # Handle items menu
-        #     pass
-        # else:
-        #     self.selection = bitmaskOptions[selection]
-            
-        self.lastMenuItemId = lastMenuItemId
-        print(lastMenuItemId)
-        print(selection)
+
+
+
 
 class Pokemon:
     def __init__(self):
@@ -644,7 +624,7 @@ class Battle:
         self.enemyPokemonLevel = 0
         self.enemyPokemonStatus = 0
 
-    
+    # TODO: implement battle turn: FFF3
     def Update(self, session):
         battleStatus = (session.get_memory_value(0xD057))
         if(battleStatus == 1):

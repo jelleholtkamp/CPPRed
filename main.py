@@ -18,7 +18,7 @@ else:
     exit(1)
 
 quiet = "--quiet" in sys.argv
-session = PyBoy(filename, window_type="headless" if quiet else "SDL2", scale=6, debug=quiet)
+session = PyBoy(filename, window_type="headless" if quiet else "SDL2", scale=6, debug=quiet, sound=True)
 session.set_emulation_speed(0)
 assert session.cartridge_title() == "POKEMON RED"
 
@@ -26,15 +26,8 @@ startGame = Commands.StartGame()
 
 startGame.Start(session)
 
-while not session.tick():
-    battle = GameData.Battle()
-    battle.Update(session)
- 
-    cursorPosition = GameData.CursorPosition()
-    cursorPosition.Update(session)
-
-
-
+while not session.tick():   
+    pass
         
 
 
