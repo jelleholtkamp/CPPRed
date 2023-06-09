@@ -1,3 +1,13 @@
 import src.classes.ComputerVision as ComputerVision
 
-ComputerVision.Screenshot.GameWindow("Debug\\screenshot.png")
+masks = [
+    {
+        "startX": 40,
+        "startY": 624,
+        "endX": 912,
+        "endY": 816
+    }
+]
+# for mask in masks:
+#     print (mask["startX"])
+ComputerVision.MatchTemplate.InGameWindow("TemplateMatching\\Convo.png", 0.8, masks)
