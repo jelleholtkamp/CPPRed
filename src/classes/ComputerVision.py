@@ -121,3 +121,19 @@ class FindStuff:
             return convoBar    
         else:
             return "NotFound"
+        
+    def NurseJoyDialogBox():
+        masks = [
+            {
+                "startX": 576,
+                "startY": 376,
+                "endX": 616,
+                "endY": 528
+            }
+        ]
+        convoBar = MatchTemplate.InGameWindow("TemplateMatching\\NurseJoyDialogBox.png", 0.8, masks)
+
+        if convoBar != None:
+            return convoBar    
+        else:
+            return "NotFound"

@@ -2,12 +2,10 @@ import src.classes.ComputerVision as ComputerVision
 
 masks = [
     {
-        "startX": 40,
-        "startY": 624,
-        "endX": 912,
-        "endY": 816
+        "startX": 576,
+        "startY": 376,
+        "endX": 616,
+        "endY": 528
     }
 ]
-# for mask in masks:
-#     print (mask["startX"])
-result = ComputerVision.MatchTemplate.InGameWindow("TemplateMatching\\Convo.png", 0.8, masks)
+result = ComputerVision.FindStuff.NurseJoyDialogBox()
