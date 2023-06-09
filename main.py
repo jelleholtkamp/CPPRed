@@ -1,6 +1,7 @@
-import classes.PokemonData as PokemonData
-import classes.Commands as Commands
-import classes.GameData as GameData
+import src.classes.PokemonData as PokemonData
+import src.classes.Commands as Commands
+import src.classes.GameData as GameData
+import src.classes.ComputerVision as ComputerVision
 import os
 import sys
 
@@ -26,8 +27,12 @@ startGame = Commands.StartGame()
 
 startGame.Start(session)
 
-while not session.tick():   
-    pass
+while not session.tick():
+    battle = GameData.Battle()   
+    battle.Update(session)
+    print(battle.turn)
+
+
         
 
 

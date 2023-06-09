@@ -1,5 +1,5 @@
-import classes.PokemonData as PokemonData
-import classes.ComputerVision as ComputerVision
+import src.classes.PokemonData as PokemonData
+import src.classes.ComputerVision as ComputerVision
 import pyboy
 class MenuBitmaskContent:
     def __init__(self):
@@ -40,23 +40,6 @@ class Map:
         mapName = maps[str(mapId)]
 
         return mapName
-
-class Tiles:
-    def GetActive(session):
-        activeTile = (session.)
-        return activeTile
-class Triggers:
-    def CheckConvo(session):
-        convo = ComputerVision.MatchTemplate.OnScreen()
-        
-    
-
-
-
-
-
-
-
 
 class Pokemon:
     def __init__(self):
@@ -605,7 +588,7 @@ class EnemyPokemon:
 class Battle:
     def __init__(self):
         self.status = 'NotInBattle'
-        self.activePokemonSpecies = 'None'
+        self.activePokemonSpecies = None
         self.activePokemonHP = 0
         self.activePokemonMaxHP = 0
         self.activePokemonLevel = 0
@@ -619,12 +602,11 @@ class Battle:
         self.activePokemonMove4 = 0
         self.activePokemonMove4PP = 0
 
-        self.enemyPokemonSpecies = 'None'
+        self.enemyPokemonSpecies = None
         self.enemyPokemonHP = 0
         self.enemyPokemonLevel = 0
         self.enemyPokemonStatus = 0
 
-    # TODO: implement battle turn: FFF3
     def Update(self, session):
         battleStatus = (session.get_memory_value(0xD057))
         if(battleStatus == 1):

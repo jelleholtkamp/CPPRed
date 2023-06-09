@@ -1,5 +1,5 @@
 from pyboy.utils import WindowEvent
-import classes.GameData as GameData
+import src.classes.GameData as GameData
 
 class StartGame():
     def __init__(self):
