@@ -137,3 +137,19 @@ class FindStuff:
             return convoBar    
         else:
             return "NotFound"
+        
+    def PCDialogBox():
+        masks = [
+            {
+                "startX": 48,
+                "startY": 80,
+                "endX": 88,
+                "endY": 432
+            }
+        ]
+        convoBar = MatchTemplate.InGameWindow("TemplateMatching\\PCDialogBox.png", 0.8, masks)
+
+        if convoBar != None:
+            return convoBar    
+        else:
+            return "NotFound"

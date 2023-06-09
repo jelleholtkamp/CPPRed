@@ -2,10 +2,12 @@ import src.classes.ComputerVision as ComputerVision
 
 masks = [
     {
-        "startX": 576,
-        "startY": 376,
-        "endX": 616,
-        "endY": 528
+        "startX": 48,
+        "startY": 80,
+        "endX": 88,
+        "endY": 432
     }
 ]
-result = ComputerVision.FindStuff.NurseJoyDialogBox()
+result = ComputerVision.FindStuff.PCDialogBox()
+
+print(result.startX)
