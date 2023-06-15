@@ -1,12 +1,17 @@
-class PokemonSpeciesMemoryAddresses:
-    _0 = "None"
-    _176 = "Charmander"
-    _112 = "Weedle"
-    _113 = "Kakuna"
-    _114 = "Beedrill"
-    _36 = "Pidgey"
-    _3 = "Nidoran♂"
-    _165 = "Rattata"
+class PokemonSpecies:
+    def Get(decimalRamAdddress):
+        species = {
+            0: None,
+            176: "Charmander",
+            112 : "Weedle",
+            113 : "Kakuna",
+            114 : "Beedrill",
+            36 : "Pidgey",
+            3 : "Nidoran♂",
+            165 : "Rattata",
+            255: None
+        }
+        return species[decimalRamAdddress]
 
 class ItemsMemoryAddresses:
     _0 = "None"
@@ -30,13 +35,6 @@ class MoveMemoryAddresses:
     _81 = "Poison Sting"
     _106 = "String Shot"
     _165 = "Struggle"
-
-class PokemonSpecies:
-    def __init__(self, decimalRamAddress):
-        attribute_name = f"_{decimalRamAddress}"
-        self.name = getattr(PokemonSpeciesMemoryAddresses, attribute_name)
-    def GetPokemonName(self):
-        print (self.name)
 
 class Items:
     def __init__(self, decimalRamAddress):

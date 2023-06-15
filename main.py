@@ -32,8 +32,7 @@ startGame.Start(session)
 while not session.tick():
     result = Commands.Dialog.PC(session)
     if result != None:
-        print(result['options'])   
-        print(result['selectedOption'])
+        print(result)   
     for i in range(0, 500):
         session.tick()
         
