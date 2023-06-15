@@ -34,7 +34,7 @@ while not session.tick():
     if result != None:
         print(result['options'])   
         print(result['selectedOption'])
-    for i in range(0, 1000):
+    for i in range(0, 500):
         session.tick()
         
    
