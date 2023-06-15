@@ -4,8 +4,10 @@ import src.classes.GameData as GameData
 import src.classes.ComputerVision as ComputerVision
 import os
 import sys
-
+import logging
 from pyboy import PyBoy, WindowEvent
+
+logging.basicConfig(stream=sys.stderr, level=logging.INFO)
 
 # Makes us able to import PyBoy from the directory below
 file_path = os.path.dirname(os.path.realpath(__file__))
@@ -19,7 +21,7 @@ else:
     exit(1)
 
 quiet = "--quiet" in sys.argv
-session = PyBoy(filename, window_type="headless" if quiet else "SDL2", scale=6, debug=quiet, sound=True)
+session = PyBoy(filename, color_palette=(0xFFFFFF,0x999999,0x555555,0x000000), window_type="headless" if quiet else "SDL2", scale=6, debug=quiet, sound=True)
 session.set_emulation_speed(0)
 assert session.cartridge_title() == "POKEMON RED"
 
@@ -28,10 +30,14 @@ startGame = Commands.StartGame()
 startGame.Start(session)
 
 while not session.tick():
-    battle = GameData.Battle()   
-    battle.Update(session)
-    print(battle.turn)
-
+    result = Commands.Dialog.PC(session)
+    if result != None:
+        print(result['options'])   
+        print(result['selectedOption'])
+    for i in range(0, 1000):
+        session.tick()
+        
+   
 
         
 

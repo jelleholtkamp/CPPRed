@@ -1,5 +1,6 @@
 import src.classes.PokemonData as PokemonData
 import src.classes.ComputerVision as ComputerVision
+import logging
 import pyboy
 class MenuBitmaskContent:
     def __init__(self):
@@ -18,6 +19,13 @@ class MenuBitmaskNames:
         self._17 = "Battle"
         self._33 = "Battle"
         self._199 = "Battle"
+
+class CursorPosition:
+    def Get(session):
+        logging.info("Getting cursor position")
+        cursorPosition = (session.get_memory_value(0xCC26))
+        logging.info("Cursor position is " + str(cursorPosition))
+        return cursorPosition
 
 class Map:
     def Get(session):
@@ -56,7 +64,6 @@ class Pokemon:
         self.move3PP = 0
         self.move4 = 0
         self.move4PP = 0
-
 
 class PartyPokemon:
     def __init__(self):
