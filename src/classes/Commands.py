@@ -425,10 +425,31 @@ class Dialog:
                         20: pokemon20Species
                     }
                 )
+ 
+        position = GameData.CursorPosition.Get(session)
+        choice = int(PlayerFeedback.Get(options)) - 1
+        MoveCursor.Move(position, choice, session)
+
+        PressButton.A(session)
+        Dialog.WithdrawPokemon(session)
+    
+    def WithdrawPokemon(session):
+        options = [
+            {
+                1 : "Withdraw"
+            },
+            {
+                2 : "Stats"
+            },
+            {
+                3 : "Cancel"
+            }
+        ]
+        position = GameData.CursorPosition.Get(session)
+        choice = int(PlayerFeedback.Get(options)) - 1
+        MoveCursor.Move(position, choice, session)
+        PressButton.A(session)
 
 
 
-        
-        
-        print(options)
    

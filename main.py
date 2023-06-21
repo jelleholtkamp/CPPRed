@@ -21,7 +21,7 @@ else:
     exit(1)
 
 quiet = "--quiet" in sys.argv
-session = PyBoy(filename, color_palette=(0xFFFFFF,0x999999,0x555555,0x000000), window_type="headless" if quiet else "SDL2", scale=6, debug=quiet, sound=True)
+session = PyBoy(filename, window_type="headless" if quiet else "SDL2", scale=6, debug=quiet, sound=True, color_palette=(0xFFFFFF,0xFF8484,0x943A3A,0x000000))
 session.set_emulation_speed(0)
 assert session.cartridge_title() == "POKEMON RED"
 
@@ -30,15 +30,12 @@ startGame = Commands.StartGame()
 startGame.Start(session)
 
 while not session.tick():
-    result = Commands.Dialog.PC(session)
-    if result != None:
-        print(result)   
-    for i in range(0, 500):
+    # result = Commands.Dialog.PC(session)
+    # if result != None:
+    #     print(result)   
+
+    result = ComputerVision.OCR.ReadConvoBox()
+    for i in range(0, 1000):
         session.tick()
         
-   
-
-        
-
-
 session.stop()
