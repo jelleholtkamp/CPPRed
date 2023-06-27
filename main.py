@@ -34,7 +34,7 @@ while not session.tick():
     # if result != None:
     #     print(result)   
 
-    result = ComputerVision.OCR.ReadConvoBox()
+    result = ComputerVision.OCR.ReadConvoBox(session)
     for i in range(0, 1000):
         session.tick()
         
