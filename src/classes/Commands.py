@@ -153,7 +153,7 @@ class PlayerFeedback():
 
 class Dialog:
     def NurseJoy(session):
-        check = ComputerVision.FindStuff.NurseJoyDialogBox()
+        check = ComputerVision.FindStuff.NurseJoyDialogBox(session)
         if check != None and check != "NotFound":
             options = [
                 "Heal",

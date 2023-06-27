@@ -109,26 +109,24 @@ class FindStuff:
             logging.info("Convo box not found")
             return "NotFound"
         
-    # TODO: Recheck these. If not working, check if they match the ConvoBox function
-    # I basically merged the screenshot and findstuff function, as they were basically doing the same but just providing different outputs
-    # def NurseJoyDialogBox():
-    #     logging.info("Finding Nurse Joy dialog box")
-    #     masks = [
-    #         {
-    #             "startX": 576,
-    #             "startY": 376,
-    #             "endX": 616,
-    #             "endY": 528
-    #         }
-    #     ]
-    #     ConvoBox = MatchTemplate.InGameWindow("TemplateMatching\\NurseJoyDialogBox.png", 0.8, masks)
+    def NurseJoyDialogBox(session):
+        logging.info("Finding Nurse Joy dialog box")
+        masks = [
+            {
+                "startX": 576,
+                "startY": 376,
+                "endX": 616,
+                "endY": 528
+            }
+        ]
+        ConvoBox = MatchTemplate.Match(session,"NurseJoyDialogBox", 0.9, masks)
 
-    #     if ConvoBox != None:
-    #         logging.info("Nurse Joy dialog box found")
-    #         return ConvoBox    
-    #     else:
-    #         logging.info("Nurse Joy dialog box not found")
-    #         return "NotFound"
+        if ConvoBox != None:
+            logging.info("Nurse Joy dialog box found")
+            return ConvoBox    
+        else:
+            logging.info("Nurse Joy dialog box not found")
+            return "NotFound"
         
     # def PCDialogBox():
     #     logging.info("Finding PC dialog box")

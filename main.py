@@ -30,11 +30,10 @@ startGame = Commands.StartGame()
 startGame.Start(session)
 
 while not session.tick():
-    # result = Commands.Dialog.PC(session)
-    # if result != None:
-    #     print(result)   
+    result = Commands.Dialog.NurseJoy(session)
+    if result != None:
+        print(result)   
 
-    result = ComputerVision.OCR.ReadConvoBox(session)
     for i in range(0, 1000):
         session.tick()
         
