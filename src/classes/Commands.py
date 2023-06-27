@@ -152,21 +152,33 @@ class PlayerFeedback():
         return playerInput
 
 class Dialog:
+    # TODO: I should check out the sprite map functions of PyBoy to check if i am talking to a certain npc
     def NurseJoy(session):
-        check = ComputerVision.FindStuff.NurseJoyDialogBox(session)
-        if check != None and check != "NotFound":
+        checkDialogBox = ComputerVision.FindStuff.NurseJoyDialogBox(session)
+        if checkDialogBox != None and checkDialogBox != "NotFound":
             options = [
-                "Heal",
-                "Cancel"
+                {
+                    1 : "Heal"
+                },
+                {
+                    2 : "Cancel"
+                }
             ]
             position = GameData.CursorPosition.Get(session)
-            result = {
-                "options": options,
-                "selectedOption": options[position]
-            }
-            return result
-        else:
-            return None
+            choice = int(PlayerFeedback.Get(options)) - 1
+            MoveCursor.Move(position, choice, session)
+
+            if (choice == 0):    
+                PressButton.A(session)
+                for i in range(0, 500):
+                    session.tick()
+                PressButton.B(session)
+                PressButton.B(session)
+                PressButton.B(session)
+
+            if (choice == 1):
+                PressButton.A(session)
+                PressButton.B(session)               
         
     def PC(session):
         check = ComputerVision.FindStuff.PCDialogBox()
