@@ -48,10 +48,7 @@ class MatchTemplate:
                 cv2.rectangle(screenshot_color, (mask["startX"], mask["startY"]), (mask["endX"], mask["endY"]), (255, 255, 255), -1)
                 logging.info("Saving masked screenshot to " + screenshotMaskedDebugPath)
                 cv2.imwrite(screenshotMaskedDebugPath, screenshot_color)
-                
-        templateFile = cv2.imread(templatePath, 0)
-                cv2.imwrite(screenshotMaskedDebugPath, screenshot_color)
-                
+                                
         templateFile = cv2.imread(templatePath, 0)
 
         w, h = templateFile.shape[::-1]
@@ -91,8 +88,6 @@ class MatchTemplate:
 
 class FindStuff:       
     def ConvoBox(session):
-class FindStuff:       
-    def ConvoBox(session):
         logging.info("Finding convo box")
         masks = [
             {
@@ -102,7 +97,7 @@ class FindStuff:
                 "endY": 816
             }
         ]
-        ConvoBox = MatchTemplate.Match(session,"ConvoBox", 0.7, masks)
+        ConvoBox = MatchTemplate.Match(session,"ConvoBox", 0.75, masks)
 
         if ConvoBox != None:
             logging.info("Convo box found")
@@ -155,7 +150,6 @@ class FindStuff:
     #         return "NotFound"
         
 class OCR:
-    def ReadConvoBox(session):
     def ReadConvoBox(session):
         pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
         screenshot = FindStuff.ConvoBox(session)
