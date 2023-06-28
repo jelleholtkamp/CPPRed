@@ -641,3 +641,77 @@ class Battle:
             self.enemyPokemonLevel = enemyActivePokemon.level
             self.enemyPokemonStatus = enemyActivePokemon.status
 
+class Sprites:
+    def OnScreen(session):
+        spriteList = {
+            0: "Player",
+            1: "Player",
+            2: "Player",
+            3: "Player",
+            4: "Player",
+            5: "Player",
+            6: "Player",
+            7: "Player",
+            8: "Player",
+            9: "Player",
+            10: "Player",
+            11: "Player",
+            12: "Nurse Joy",
+            13: "Nurse Joy",
+            14: "Nurse Joy",
+            15: "Nurse Joy",
+
+        }
+        sprite0 = session.botsupport_manager().sprite(0)
+        sprite1 = session.botsupport_manager().sprite(1)
+        sprite2 = session.botsupport_manager().sprite(2)
+        sprite3 = session.botsupport_manager().sprite(3)
+
+        try:
+            npc0Name = spriteList[sprite0.tile_identifier]
+        except:
+            npc0Name = "None"
+
+        npc0 = {
+            'name': npc0Name, 
+            'topLeft': (sprite0.x, sprite0.y),
+            'topRight': (sprite1.x, sprite1.y),
+            'bottomLeft': (sprite2.x, sprite2.y),
+            'bottomRight': (sprite3.x, sprite3.y)
+        }
+
+        sprite4 = session.botsupport_manager().sprite(4)
+        sprite5 = session.botsupport_manager().sprite(5)
+        sprite6 = session.botsupport_manager().sprite(6)
+        sprite7 = session.botsupport_manager().sprite(7)
+
+        try:
+            npc1Name = spriteList[sprite4.tile_identifier]
+        except:
+            npc1Name = "None"
+
+        npc1 = {
+            'name': npc1Name,
+            'topLeft': (sprite4.x, sprite4.y),
+            'topRight': (sprite5.x, sprite5.y),
+            'bottomLeft': (sprite6.x, sprite6.y),
+            'bottomRight': (sprite7.x, sprite7.y)
+        }
+
+        return npc0, npc1
+
+        # sprite8 = session.botsupport_manager().sprite(8)
+        # sprite9 = session.botsupport_manager().sprite(9)
+        # sprite10 = session.botsupport_manager().sprite(10)
+        # sprite11 = session.botsupport_manager().sprite(11)
+        
+
+
+        # sprite12 = session.botsupport_manager().sprite(12)
+        # sprite13 = session.botsupport_manager().sprite(13)
+        # sprite14 = session.botsupport_manager().sprite(14)
+        # sprite15 = session.botsupport_manager().sprite(15)
+        # print("NPC3T1X: ", sprite12.x, "NPC3T1Y: ", sprite12.y, "Tile Identifier: ", sprite12.tile_identifier)
+        # print("NPC3T2X: ", sprite13.x, "NPC3T2Y: ", sprite13.y, "Tile Identifier: ", sprite13.tile_identifier)
+        # print("NPC3T3X: ", sprite14.x, "NPC3T3Y: ", sprite14.y, "Tile Identifier: ", sprite14.tile_identifier)
+        # print("NPC3T4X: ", sprite15.x, "NPC3T4Y: ", sprite15.y, "Tile Identifier: ", sprite15.tile_identifier)
