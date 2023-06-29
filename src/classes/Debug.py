@@ -270,6 +270,7 @@ class Debug:
         workingDirectory = 'Debug\\SpriteFarm\\Workspace'
         initialDirectory = workingDirectory + '\\Initial'
         spriteMapPath = 'TemplateMatching\\Sheets\\SpriteSheet.png'
+        trashDirectory = '.spriteTrash'
         workingDirectoryContent = os.listdir(workingDirectory)
         initialImages = os.listdir(initialDirectory)
         
@@ -289,7 +290,7 @@ class Debug:
         spriteMap = [
             firstImageCharacter
         ]
-        os.remove(initialDirectory + '\\' + firstImagePath)
+        os.rename(initialDirectory + '\\' + firstImagePath, trashDirectory + '\\' + firstImagePath)
 
         existingImage = firstImage
         existingImage = numpy.array(existingImage)
@@ -313,7 +314,7 @@ class Debug:
                 newImageCharacter = newImageCharacter.replace(' up', '')
                 newImageCharacter = newImageCharacter.replace(' side', '')
                 spriteMap.append(newImageCharacter)
-                os.remove(initialDirectory + '\\' + imagePath)
+                os.rename(initialDirectory + '\\' + imagePath, trashDirectory + '\\' + imagePath)
 
                 if isSide:
                     flippedImage = newImage.transpose(PIL.Image.FLIP_LEFT_RIGHT)
@@ -340,7 +341,7 @@ class Debug:
                 newImageCharacter = newImageCharacter.replace(' up', '')
                 newImageCharacter = newImageCharacter.replace(' side', '')
                 spriteMap.append(newImageCharacter)
-                os.remove(workingDirectory + '\\' + imagePath)
+                os.rename(workingDirectory + '\\' + imagePath, trashDirectory + '\\' + imagePath)
 
                 if isSide:
                     flippedImage = newImage.transpose(PIL.Image.FLIP_LEFT_RIGHT)
@@ -359,7 +360,7 @@ class Debug:
     def UpdateSpriteSheet():
         workingDirectory = 'Debug\\SpriteFarm\\Workspace'
         spriteMapPath = 'TemplateMatching\\Sheets\\SpriteSheet.png'
-        trashDirectory = 
+        trashDirectory = '.spriteTrash'
         workingDirectoryContent = os.listdir(workingDirectory)
         existingImage = PIL.Image.open(spriteMapPath)
         existingImage = numpy.array(existingImage)
@@ -381,7 +382,7 @@ class Debug:
                 newImageCharacter = newImageCharacter.replace(' up', '')
                 newImageCharacter = newImageCharacter.replace(' side', '')
                 spriteMap.append(newImageCharacter)
-                os.rerename(workingDirectory + '\\' + imagePath, )
+                os.rename(workingDirectory + '\\' + imagePath, trashDirectory + '\\' + imagePath)
 
                 if isSide:
                     flippedImage = newImage.transpose(PIL.Image.FLIP_LEFT_RIGHT)
