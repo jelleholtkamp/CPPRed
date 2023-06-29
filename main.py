@@ -2,6 +2,7 @@ import src.classes.PokemonData as PokemonData
 import src.classes.Commands as Commands
 import src.classes.GameData as GameData
 import src.classes.ComputerVision as ComputerVision
+import src.classes.Debug as Debug
 import os
 import sys
 import logging
@@ -37,7 +38,11 @@ while not session.tick():
     if choice == "gos":
         GameData.Sprites.OnScreen(session)
     elif choice == "sf":
-        Commands.Debug.SpriteFarm(session)
+        Debug.Debug.SpriteFarm(session)
+    elif choice == "nss":
+        Debug.Debug.NewSpriteSheet()
+    elif choice == "uss":
+        Debug.Debug.UpdateSpriteSheet()
     else:
         print("Unknown command")
 
