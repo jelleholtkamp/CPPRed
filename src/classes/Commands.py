@@ -462,6 +462,226 @@ class Dialog:
         MoveCursor.Move(position, choice, session)
         PressButton.A(session)
 
+class Debug:
+    def SpriteFarm(session):
+        debugPath = 'Debug\\SpriteFarm'
+        # Farm sprite0
+        sprite00 = session.botsupport_manager().sprite(0)
+        sprite01 = session.botsupport_manager().sprite(1)
+        sprite02 = session.botsupport_manager().sprite(2)
+        sprite03 = session.botsupport_manager().sprite(3)
 
+        sprite00TileId = sprite00.tiles[0].tile_identifier
+        sprite00Tile = session.botsupport_manager().tile(sprite00TileId).image()
+        sprite00Tile.save(debugPath +"\\sprite00.png")
 
+        sprite01TileId = sprite01.tiles[0].tile_identifier
+        sprite01Tile = session.botsupport_manager().tile(sprite01TileId).image()
+        sprite01Tile.save(debugPath +"\\sprite01.png")
+
+        sprite02TileId = sprite02.tiles[0].tile_identifier
+        sprite02Tile = session.botsupport_manager().tile(sprite02TileId).image()
+        sprite02Tile.save(debugPath +"\\sprite02.png")
+
+        sprite03TileId = sprite03.tiles[0].tile_identifier
+        sprite03Tile = session.botsupport_manager().tile(sprite03TileId).image()
+        sprite03Tile.save(debugPath +"\\sprite03.png")
+
+        # Farm sprite1
+        sprite10 = session.botsupport_manager().sprite(4)
+        sprite11 = session.botsupport_manager().sprite(5)
+        sprite12 = session.botsupport_manager().sprite(6)
+        sprite13 = session.botsupport_manager().sprite(7)
+
+        sprite10TileId = sprite10.tiles[0].tile_identifier
+        sprite10Tile = session.botsupport_manager().tile(sprite10TileId).image()
+        sprite10Tile.save(debugPath +"\\sprite10.png")
+
+        sprite11TileId = sprite11.tiles[0].tile_identifier
+        sprite11Tile = session.botsupport_manager().tile(sprite11TileId).image()
+        sprite11Tile.save(debugPath +"\\sprite11.png")
+
+        sprite12TileId = sprite12.tiles[0].tile_identifier
+        sprite12Tile = session.botsupport_manager().tile(sprite12TileId).image()
+        sprite12Tile.save(debugPath +"\\sprite12.png")
+
+        sprite13TileId = sprite13.tiles[0].tile_identifier
+        sprite13Tile = session.botsupport_manager().tile(sprite13TileId).image()
+        sprite13Tile.save(debugPath +"\\sprite13.png")
+
+        # Farm sprite2
+        sprite20 = session.botsupport_manager().sprite(8)
+        sprite21 = session.botsupport_manager().sprite(9)
+        sprite22 = session.botsupport_manager().sprite(10)
+        sprite23 = session.botsupport_manager().sprite(11)
+
+        sprite20TileId = sprite20.tiles[0].tile_identifier
+        sprite20Tile = session.botsupport_manager().tile(sprite20TileId).image()
+        sprite20Tile.save(debugPath +"\\sprite20.png")
+
+        sprite21TileId = sprite21.tiles[0].tile_identifier
+        sprite21Tile = session.botsupport_manager().tile(sprite21TileId).image()
+        sprite21Tile.save(debugPath +"\\sprite21.png")
+
+        sprite22TileId = sprite22.tiles[0].tile_identifier
+        sprite22Tile = session.botsupport_manager().tile(sprite22TileId).image()
+        sprite22Tile.save(debugPath +"\\sprite22.png")
+
+        sprite23TileId = sprite23.tiles[0].tile_identifier
+        sprite23Tile = session.botsupport_manager().tile(sprite23TileId).image()
+        sprite23Tile.save(debugPath +"\\sprite23.png")
+
+        # Farm sprite3
+        sprite30 = session.botsupport_manager().sprite(12)
+        sprite31 = session.botsupport_manager().sprite(13)
+        sprite32 = session.botsupport_manager().sprite(14)
+        sprite33 = session.botsupport_manager().sprite(15)
+
+        sprite30TileId = sprite30.tiles[0].tile_identifier
+        sprite30Tile = session.botsupport_manager().tile(sprite30TileId).image()
+        sprite30Tile.save(debugPath +"\\sprite30.png")
+
+        sprite31TileId = sprite31.tiles[0].tile_identifier
+        sprite31Tile = session.botsupport_manager().tile(sprite31TileId).image()
+        sprite31Tile.save(debugPath +"\\sprite31.png")
+
+        sprite32TileId = sprite32.tiles[0].tile_identifier
+        sprite32Tile = session.botsupport_manager().tile(sprite32TileId).image()
+        sprite32Tile.save(debugPath +"\\sprite32.png")
+
+        sprite33TileId = sprite33.tiles[0].tile_identifier
+        sprite33Tile = session.botsupport_manager().tile(sprite33TileId).image()
+        sprite33Tile.save(debugPath +"\\sprite33.png")
+
+        # Farm sprite4
+        sprite40 = session.botsupport_manager().sprite(16)
+        sprite41 = session.botsupport_manager().sprite(17)
+        sprite42 = session.botsupport_manager().sprite(18)
+        sprite43 = session.botsupport_manager().sprite(19)
+
+        sprite40TileId = sprite40.tiles[0].tile_identifier
+        sprite40Tile = session.botsupport_manager().tile(sprite40TileId).image()
+        sprite40Tile.save(debugPath +"\\sprite40.png")
+
+        sprite41TileId = sprite41.tiles[0].tile_identifier
+        sprite41Tile = session.botsupport_manager().tile(sprite41TileId).image()
+        sprite41Tile.save(debugPath +"\\sprite41.png")
+
+        sprite42TileId = sprite42.tiles[0].tile_identifier
+        sprite42Tile = session.botsupport_manager().tile(sprite42TileId).image()
+        sprite42Tile.save(debugPath +"\\sprite42.png")
+
+        sprite43TileId = sprite43.tiles[0].tile_identifier
+        sprite43Tile = session.botsupport_manager().tile(sprite43TileId).image()
+        sprite43Tile.save(debugPath +"\\sprite43.png")
+
+        # Farm sprite5
+        sprite50 = session.botsupport_manager().sprite(20)
+        sprite51 = session.botsupport_manager().sprite(21)
+        sprite52 = session.botsupport_manager().sprite(22)
+        sprite53 = session.botsupport_manager().sprite(23)
+
+        sprite50TileId = sprite50.tiles[0].tile_identifier
+        sprite50Tile = session.botsupport_manager().tile(sprite50TileId).image()
+        sprite50Tile.save(debugPath +"\\sprite50.png")
+
+        sprite51TileId = sprite51.tiles[0].tile_identifier
+        sprite51Tile = session.botsupport_manager().tile(sprite51TileId).image()
+        sprite51Tile.save(debugPath +"\\sprite51.png")
+
+        sprite52TileId = sprite52.tiles[0].tile_identifier
+        sprite52Tile = session.botsupport_manager().tile(sprite52TileId).image()
+        sprite52Tile.save(debugPath +"\\sprite52.png")
+
+        sprite53TileId = sprite53.tiles[0].tile_identifier
+        sprite53Tile = session.botsupport_manager().tile(sprite53TileId).image()
+        sprite53Tile.save(debugPath +"\\sprite53.png")
+
+        # Farm sprite6
+        sprite60 = session.botsupport_manager().sprite(24)
+        sprite61 = session.botsupport_manager().sprite(25)
+        sprite62 = session.botsupport_manager().sprite(26)
+        sprite63 = session.botsupport_manager().sprite(27)
+
+        sprite60TileId = sprite60.tiles[0].tile_identifier
+        sprite60Tile = session.botsupport_manager().tile(sprite60TileId).image()
+        sprite60Tile.save(debugPath +"\\sprite60.png")
+
+        sprite61TileId = sprite61.tiles[0].tile_identifier
+        sprite61Tile = session.botsupport_manager().tile(sprite61TileId).image()
+        sprite61Tile.save(debugPath +"\\sprite61.png")
+
+        sprite62TileId = sprite62.tiles[0].tile_identifier
+        sprite62Tile = session.botsupport_manager().tile(sprite62TileId).image()
+        sprite62Tile.save(debugPath +"\\sprite62.png")
+
+        sprite63TileId = sprite63.tiles[0].tile_identifier
+        sprite63Tile = session.botsupport_manager().tile(sprite63TileId).image()
+        sprite63Tile.save(debugPath +"\\sprite63.png")
+
+        # Farm sprite7
+        sprite70 = session.botsupport_manager().sprite(28)
+        sprite71 = session.botsupport_manager().sprite(29)
+        sprite72 = session.botsupport_manager().sprite(30)
+        sprite73 = session.botsupport_manager().sprite(31)
+
+        sprite70TileId = sprite70.tiles[0].tile_identifier
+        sprite70Tile = session.botsupport_manager().tile(sprite70TileId).image()
+        sprite70Tile.save(debugPath +"\\sprite70.png")
+
+        sprite71TileId = sprite71.tiles[0].tile_identifier
+        sprite71Tile = session.botsupport_manager().tile(sprite71TileId).image()
+        sprite71Tile.save(debugPath +"\\sprite71.png")
+
+        sprite72TileId = sprite72.tiles[0].tile_identifier
+        sprite72Tile = session.botsupport_manager().tile(sprite72TileId).image()
+        sprite72Tile.save(debugPath +"\\sprite72.png")
+
+        sprite73TileId = sprite73.tiles[0].tile_identifier
+        sprite73Tile = session.botsupport_manager().tile(sprite73TileId).image()
+        sprite73Tile.save(debugPath +"\\sprite73.png")
+
+        # Farm sprite8
+        sprite80 = session.botsupport_manager().sprite(32)
+        sprite81 = session.botsupport_manager().sprite(33)
+        sprite82 = session.botsupport_manager().sprite(34)
+        sprite83 = session.botsupport_manager().sprite(35)
+
+        sprite80TileId = sprite80.tiles[0].tile_identifier
+        sprite80Tile = session.botsupport_manager().tile(sprite80TileId).image()
+        sprite80Tile.save(debugPath +"\\sprite80.png")
+
+        sprite81TileId = sprite81.tiles[0].tile_identifier
+        sprite81Tile = session.botsupport_manager().tile(sprite81TileId).image()
+        sprite81Tile.save(debugPath +"\\sprite81.png")
+
+        sprite82TileId = sprite82.tiles[0].tile_identifier
+        sprite82Tile = session.botsupport_manager().tile(sprite82TileId).image()
+        sprite82Tile.save(debugPath +"\\sprite82.png")
+
+        sprite83TileId = sprite83.tiles[0].tile_identifier
+        sprite83Tile = session.botsupport_manager().tile(sprite83TileId).image()
+        sprite83Tile.save(debugPath +"\\sprite83.png")
+
+        # Farm sprite9
+        sprite90 = session.botsupport_manager().sprite(36)
+        sprite91 = session.botsupport_manager().sprite(37)
+        sprite92 = session.botsupport_manager().sprite(38)
+        sprite93 = session.botsupport_manager().sprite(39)
+
+        sprite90TileId = sprite90.tiles[0].tile_identifier
+        sprite90Tile = session.botsupport_manager().tile(sprite90TileId).image()
+        sprite90Tile.save(debugPath +"\\sprite90.png")
+
+        sprite91TileId = sprite91.tiles[0].tile_identifier
+        sprite91Tile = session.botsupport_manager().tile(sprite91TileId).image()
+        sprite91Tile.save(debugPath +"\\sprite91.png")
+
+        sprite92TileId = sprite92.tiles[0].tile_identifier
+        sprite92Tile = session.botsupport_manager().tile(sprite92TileId).image()
+        sprite92Tile.save(debugPath +"\\sprite92.png")
+
+        sprite93TileId = sprite93.tiles[0].tile_identifier
+        sprite93Tile = session.botsupport_manager().tile(sprite93TileId).image()
+        sprite93Tile.save(debugPath +"\\sprite93.png")
    

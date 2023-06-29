@@ -660,6 +660,22 @@ class Sprites:
             13: "Nurse Joy",
             14: "Nurse Joy",
             15: "Nurse Joy",
+            32: "a well dressed man",
+            33: "a well dressed man",
+            34: "a well dressed man",
+            36: "Pokémon",
+            37: "Pokémon",
+            38: "Pokémon",
+            39: "Pokémon",
+            48: "the link club lady",
+            49: "the link club lady",
+            50: "the link club lady",
+            51: "the link club lady",
+            108: "a guy",
+            109: "a guy",
+            110: "a guy",
+            111: "a guy",
+ 
 
         }
         sprite0 = session.botsupport_manager().sprite(0)
@@ -680,25 +696,25 @@ class Sprites:
             'bottomRight': (sprite3.x, sprite3.y)
         }
 
-        sprite4 = session.botsupport_manager().sprite(4)
-        sprite5 = session.botsupport_manager().sprite(5)
-        sprite6 = session.botsupport_manager().sprite(6)
-        sprite7 = session.botsupport_manager().sprite(7)
+        sprite4TileIdentifier = session.botsupport_manager().sprite(4)
+        sprite5TileIdentifier = session.botsupport_manager().sprite(5)
+        sprite6TileIdentifier = session.botsupport_manager().sprite(6)
+        sprite7TileIdentifier = session.botsupport_manager().sprite(7)
 
-        try:
-            npc1Name = spriteList[sprite4.tile_identifier]
-        except:
-            npc1Name = "None"
+    
+        test = npc1Tile = session.botsupport_manager().tile(sprite4TileIdentifier)
+    
+        return test
 
-        npc1 = {
-            'name': npc1Name,
-            'topLeft': (sprite4.x, sprite4.y),
-            'topRight': (sprite5.x, sprite5.y),
-            'bottomLeft': (sprite6.x, sprite6.y),
-            'bottomRight': (sprite7.x, sprite7.y)
-        }
+        # npc1 = {
+        #     'name': npc1Name,
+        #     'topLeft': (sprite4.x, sprite4.y),
+        #     'topRight': (sprite5.x, sprite5.y),
+        #     'bottomLeft': (sprite6.x, sprite6.y),
+        #     'bottomRight': (sprite7.x, sprite7.y)
+        # }
 
-        return npc0, npc1
+        # return npc0, npc1
 
         # sprite8 = session.botsupport_manager().sprite(8)
         # sprite9 = session.botsupport_manager().sprite(9)
