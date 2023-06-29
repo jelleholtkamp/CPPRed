@@ -22,7 +22,7 @@ else:
     exit(1)
 
 quiet = "--quiet" in sys.argv
-session = PyBoy(filename, window_type="headless" if quiet else "SDL2", scale=6, debug=not quiet, sound=True, color_palette=(0xFFFFFF,0xFF8484,0x943A3A,0x000000))
+session = PyBoy(filename, window_type="headless" if quiet else "SDL2", scale=6, debug=quiet, sound=True, color_palette=(0xFFFFFF,0xFF8484,0x943A3A,0x000000))
 session.set_emulation_speed(0)
 assert session.cartridge_title() == "POKEMON RED"
 
@@ -31,10 +31,15 @@ startGame = Commands.StartGame()
 startGame.Start(session)
 
 while not session.tick():
-    Commands.Debug.SpriteFarm(session)
-
-    for i in range(0, 500):
-        tick = i
+    for i in range(0, 1000):
         session.tick()
+    choice = input("Enter command: ")
+    if choice == "gos":
+        GameData.Sprites.OnScreen(session)
+    elif choice == "sf":
+        Commands.Debug.SpriteFarm(session)
+    else:
+        print("Unknown command")
+
         
 session.stop()

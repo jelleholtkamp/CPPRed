@@ -3,6 +3,8 @@ import logging
 import src.classes.GameData as GameData
 import src.classes.ComputerVision as ComputerVision
 import src.classes.PokemonData as pokemonData
+import numpy
+import PIL
 import pyboy
 
 class StartGame():
@@ -464,7 +466,11 @@ class Dialog:
 
 class Debug:
     def SpriteFarm(session):
-        debugPath = 'Debug\\SpriteFarm'
+        outputPath = 'Debug\\SpriteFarm\\Spritefarm.txt'
+        file = open(outputPath, 'w')
+        file.close()
+        file = open(outputPath, 'a')
+
         # Farm sprite0
         sprite00 = session.botsupport_manager().sprite(0)
         sprite01 = session.botsupport_manager().sprite(1)
@@ -472,20 +478,23 @@ class Debug:
         sprite03 = session.botsupport_manager().sprite(3)
 
         sprite00TileId = sprite00.tiles[0].tile_identifier
-        sprite00Tile = session.botsupport_manager().tile(sprite00TileId).image()
-        sprite00Tile.save(debugPath +"\\sprite00.png")
+        sprite00Tile = session.botsupport_manager().tile(sprite00TileId).image_ndarray()
 
         sprite01TileId = sprite01.tiles[0].tile_identifier
-        sprite01Tile = session.botsupport_manager().tile(sprite01TileId).image()
-        sprite01Tile.save(debugPath +"\\sprite01.png")
+        sprite01Tile = session.botsupport_manager().tile(sprite01TileId).image_ndarray()
 
         sprite02TileId = sprite02.tiles[0].tile_identifier
-        sprite02Tile = session.botsupport_manager().tile(sprite02TileId).image()
-        sprite02Tile.save(debugPath +"\\sprite02.png")
-
+        sprite02Tile = session.botsupport_manager().tile(sprite02TileId).image_ndarray()
+       
         sprite03TileId = sprite03.tiles[0].tile_identifier
-        sprite03Tile = session.botsupport_manager().tile(sprite03TileId).image()
-        sprite03Tile.save(debugPath +"\\sprite03.png")
+        sprite03Tile = session.botsupport_manager().tile(sprite03TileId).image_ndarray()
+       
+        sprite00TopHalf = numpy.concatenate((sprite00Tile, sprite01Tile), axis=1)
+        sprite00BottomHalf = numpy.concatenate((sprite02Tile, sprite03Tile), axis=1)
+        sprite00Full = numpy.concatenate((sprite00TopHalf, sprite00BottomHalf), axis=0)
+
+        sprite00FullPIL = PIL.Image.fromarray(sprite00Full)
+        sprite00FullPIL.save('Debug\\SpriteFarm\\sprite00.png')
 
         # Farm sprite1
         sprite10 = session.botsupport_manager().sprite(4)
@@ -494,20 +503,23 @@ class Debug:
         sprite13 = session.botsupport_manager().sprite(7)
 
         sprite10TileId = sprite10.tiles[0].tile_identifier
-        sprite10Tile = session.botsupport_manager().tile(sprite10TileId).image()
-        sprite10Tile.save(debugPath +"\\sprite10.png")
+        sprite10Tile = session.botsupport_manager().tile(sprite10TileId).image_ndarray()
 
         sprite11TileId = sprite11.tiles[0].tile_identifier
-        sprite11Tile = session.botsupport_manager().tile(sprite11TileId).image()
-        sprite11Tile.save(debugPath +"\\sprite11.png")
+        sprite11Tile = session.botsupport_manager().tile(sprite11TileId).image_ndarray()
 
         sprite12TileId = sprite12.tiles[0].tile_identifier
-        sprite12Tile = session.botsupport_manager().tile(sprite12TileId).image()
-        sprite12Tile.save(debugPath +"\\sprite12.png")
-
+        sprite12Tile = session.botsupport_manager().tile(sprite12TileId).image_ndarray()
+       
         sprite13TileId = sprite13.tiles[0].tile_identifier
-        sprite13Tile = session.botsupport_manager().tile(sprite13TileId).image()
-        sprite13Tile.save(debugPath +"\\sprite13.png")
+        sprite13Tile = session.botsupport_manager().tile(sprite13TileId).image_ndarray()
+       
+        sprite10TopHalf = numpy.concatenate((sprite10Tile, sprite11Tile), axis=1)
+        sprite10BottomHalf = numpy.concatenate((sprite12Tile, sprite13Tile), axis=1)
+        sprite10Full = numpy.concatenate((sprite10TopHalf, sprite10BottomHalf), axis=0)
+
+        sprite10FullPIL = PIL.Image.fromarray(sprite10Full)
+        sprite10FullPIL.save('Debug\\SpriteFarm\\sprite10.png')
 
         # Farm sprite2
         sprite20 = session.botsupport_manager().sprite(8)
@@ -516,20 +528,23 @@ class Debug:
         sprite23 = session.botsupport_manager().sprite(11)
 
         sprite20TileId = sprite20.tiles[0].tile_identifier
-        sprite20Tile = session.botsupport_manager().tile(sprite20TileId).image()
-        sprite20Tile.save(debugPath +"\\sprite20.png")
+        sprite20Tile = session.botsupport_manager().tile(sprite20TileId).image_ndarray()
 
         sprite21TileId = sprite21.tiles[0].tile_identifier
-        sprite21Tile = session.botsupport_manager().tile(sprite21TileId).image()
-        sprite21Tile.save(debugPath +"\\sprite21.png")
+        sprite21Tile = session.botsupport_manager().tile(sprite21TileId).image_ndarray()
 
         sprite22TileId = sprite22.tiles[0].tile_identifier
-        sprite22Tile = session.botsupport_manager().tile(sprite22TileId).image()
-        sprite22Tile.save(debugPath +"\\sprite22.png")
-
+        sprite22Tile = session.botsupport_manager().tile(sprite22TileId).image_ndarray()
+       
         sprite23TileId = sprite23.tiles[0].tile_identifier
-        sprite23Tile = session.botsupport_manager().tile(sprite23TileId).image()
-        sprite23Tile.save(debugPath +"\\sprite23.png")
+        sprite23Tile = session.botsupport_manager().tile(sprite23TileId).image_ndarray()
+       
+        sprite20TopHalf = numpy.concatenate((sprite20Tile, sprite21Tile), axis=1)
+        sprite20BottomHalf = numpy.concatenate((sprite22Tile, sprite23Tile), axis=1)
+        sprite20Full = numpy.concatenate((sprite20TopHalf, sprite20BottomHalf), axis=0)
+
+        sprite20FullPIL = PIL.Image.fromarray(sprite20Full)
+        sprite20FullPIL.save('Debug\\SpriteFarm\\sprite20.png')
 
         # Farm sprite3
         sprite30 = session.botsupport_manager().sprite(12)
@@ -538,20 +553,23 @@ class Debug:
         sprite33 = session.botsupport_manager().sprite(15)
 
         sprite30TileId = sprite30.tiles[0].tile_identifier
-        sprite30Tile = session.botsupport_manager().tile(sprite30TileId).image()
-        sprite30Tile.save(debugPath +"\\sprite30.png")
+        sprite30Tile = session.botsupport_manager().tile(sprite30TileId).image_ndarray()
 
         sprite31TileId = sprite31.tiles[0].tile_identifier
-        sprite31Tile = session.botsupport_manager().tile(sprite31TileId).image()
-        sprite31Tile.save(debugPath +"\\sprite31.png")
+        sprite31Tile = session.botsupport_manager().tile(sprite31TileId).image_ndarray()
 
         sprite32TileId = sprite32.tiles[0].tile_identifier
-        sprite32Tile = session.botsupport_manager().tile(sprite32TileId).image()
-        sprite32Tile.save(debugPath +"\\sprite32.png")
-
+        sprite32Tile = session.botsupport_manager().tile(sprite32TileId).image_ndarray()
+       
         sprite33TileId = sprite33.tiles[0].tile_identifier
-        sprite33Tile = session.botsupport_manager().tile(sprite33TileId).image()
-        sprite33Tile.save(debugPath +"\\sprite33.png")
+        sprite33Tile = session.botsupport_manager().tile(sprite33TileId).image_ndarray()
+       
+        sprite30TopHalf = numpy.concatenate((sprite30Tile, sprite31Tile), axis=1)
+        sprite30BottomHalf = numpy.concatenate((sprite32Tile, sprite33Tile), axis=1)
+        sprite30Full = numpy.concatenate((sprite30TopHalf, sprite30BottomHalf), axis=0)
+
+        sprite30FullPIL = PIL.Image.fromarray(sprite30Full)
+        sprite30FullPIL.save('Debug\\SpriteFarm\\sprite30.png')
 
         # Farm sprite4
         sprite40 = session.botsupport_manager().sprite(16)
@@ -560,20 +578,23 @@ class Debug:
         sprite43 = session.botsupport_manager().sprite(19)
 
         sprite40TileId = sprite40.tiles[0].tile_identifier
-        sprite40Tile = session.botsupport_manager().tile(sprite40TileId).image()
-        sprite40Tile.save(debugPath +"\\sprite40.png")
+        sprite40Tile = session.botsupport_manager().tile(sprite40TileId).image_ndarray()
 
         sprite41TileId = sprite41.tiles[0].tile_identifier
-        sprite41Tile = session.botsupport_manager().tile(sprite41TileId).image()
-        sprite41Tile.save(debugPath +"\\sprite41.png")
+        sprite41Tile = session.botsupport_manager().tile(sprite41TileId).image_ndarray()
 
         sprite42TileId = sprite42.tiles[0].tile_identifier
-        sprite42Tile = session.botsupport_manager().tile(sprite42TileId).image()
-        sprite42Tile.save(debugPath +"\\sprite42.png")
-
+        sprite42Tile = session.botsupport_manager().tile(sprite42TileId).image_ndarray()
+       
         sprite43TileId = sprite43.tiles[0].tile_identifier
-        sprite43Tile = session.botsupport_manager().tile(sprite43TileId).image()
-        sprite43Tile.save(debugPath +"\\sprite43.png")
+        sprite43Tile = session.botsupport_manager().tile(sprite43TileId).image_ndarray()
+       
+        sprite40TopHalf = numpy.concatenate((sprite40Tile, sprite41Tile), axis=1)
+        sprite40BottomHalf = numpy.concatenate((sprite42Tile, sprite43Tile), axis=1)
+        sprite40Full = numpy.concatenate((sprite40TopHalf, sprite40BottomHalf), axis=0)
+
+        sprite40FullPIL = PIL.Image.fromarray(sprite40Full)
+        sprite40FullPIL.save('Debug\\SpriteFarm\\sprite40.png')
 
         # Farm sprite5
         sprite50 = session.botsupport_manager().sprite(20)
@@ -582,20 +603,23 @@ class Debug:
         sprite53 = session.botsupport_manager().sprite(23)
 
         sprite50TileId = sprite50.tiles[0].tile_identifier
-        sprite50Tile = session.botsupport_manager().tile(sprite50TileId).image()
-        sprite50Tile.save(debugPath +"\\sprite50.png")
+        sprite50Tile = session.botsupport_manager().tile(sprite50TileId).image_ndarray()
 
         sprite51TileId = sprite51.tiles[0].tile_identifier
-        sprite51Tile = session.botsupport_manager().tile(sprite51TileId).image()
-        sprite51Tile.save(debugPath +"\\sprite51.png")
+        sprite51Tile = session.botsupport_manager().tile(sprite51TileId).image_ndarray()
 
         sprite52TileId = sprite52.tiles[0].tile_identifier
-        sprite52Tile = session.botsupport_manager().tile(sprite52TileId).image()
-        sprite52Tile.save(debugPath +"\\sprite52.png")
-
+        sprite52Tile = session.botsupport_manager().tile(sprite52TileId).image_ndarray()
+       
         sprite53TileId = sprite53.tiles[0].tile_identifier
-        sprite53Tile = session.botsupport_manager().tile(sprite53TileId).image()
-        sprite53Tile.save(debugPath +"\\sprite53.png")
+        sprite53Tile = session.botsupport_manager().tile(sprite53TileId).image_ndarray()
+       
+        sprite50TopHalf = numpy.concatenate((sprite50Tile, sprite51Tile), axis=1)
+        sprite50BottomHalf = numpy.concatenate((sprite52Tile, sprite53Tile), axis=1)
+        sprite50Full = numpy.concatenate((sprite50TopHalf, sprite50BottomHalf), axis=0)
+
+        sprite50FullPIL = PIL.Image.fromarray(sprite50Full)
+        sprite50FullPIL.save('Debug\\SpriteFarm\\sprite50.png')
 
         # Farm sprite6
         sprite60 = session.botsupport_manager().sprite(24)
@@ -604,20 +628,23 @@ class Debug:
         sprite63 = session.botsupport_manager().sprite(27)
 
         sprite60TileId = sprite60.tiles[0].tile_identifier
-        sprite60Tile = session.botsupport_manager().tile(sprite60TileId).image()
-        sprite60Tile.save(debugPath +"\\sprite60.png")
+        sprite60Tile = session.botsupport_manager().tile(sprite60TileId).image_ndarray()
 
         sprite61TileId = sprite61.tiles[0].tile_identifier
-        sprite61Tile = session.botsupport_manager().tile(sprite61TileId).image()
-        sprite61Tile.save(debugPath +"\\sprite61.png")
+        sprite61Tile = session.botsupport_manager().tile(sprite61TileId).image_ndarray()
 
         sprite62TileId = sprite62.tiles[0].tile_identifier
-        sprite62Tile = session.botsupport_manager().tile(sprite62TileId).image()
-        sprite62Tile.save(debugPath +"\\sprite62.png")
-
+        sprite62Tile = session.botsupport_manager().tile(sprite62TileId).image_ndarray()
+       
         sprite63TileId = sprite63.tiles[0].tile_identifier
-        sprite63Tile = session.botsupport_manager().tile(sprite63TileId).image()
-        sprite63Tile.save(debugPath +"\\sprite63.png")
+        sprite63Tile = session.botsupport_manager().tile(sprite63TileId).image_ndarray()
+       
+        sprite60TopHalf = numpy.concatenate((sprite60Tile, sprite61Tile), axis=1)
+        sprite60BottomHalf = numpy.concatenate((sprite62Tile, sprite63Tile), axis=1)
+        sprite60Full = numpy.concatenate((sprite60TopHalf, sprite60BottomHalf), axis=0)
+
+        sprite60FullPIL = PIL.Image.fromarray(sprite60Full)
+        sprite60FullPIL.save('Debug\\SpriteFarm\\sprite60.png')
 
         # Farm sprite7
         sprite70 = session.botsupport_manager().sprite(28)
@@ -626,20 +653,23 @@ class Debug:
         sprite73 = session.botsupport_manager().sprite(31)
 
         sprite70TileId = sprite70.tiles[0].tile_identifier
-        sprite70Tile = session.botsupport_manager().tile(sprite70TileId).image()
-        sprite70Tile.save(debugPath +"\\sprite70.png")
+        sprite70Tile = session.botsupport_manager().tile(sprite70TileId).image_ndarray()
 
         sprite71TileId = sprite71.tiles[0].tile_identifier
-        sprite71Tile = session.botsupport_manager().tile(sprite71TileId).image()
-        sprite71Tile.save(debugPath +"\\sprite71.png")
+        sprite71Tile = session.botsupport_manager().tile(sprite71TileId).image_ndarray()
 
         sprite72TileId = sprite72.tiles[0].tile_identifier
-        sprite72Tile = session.botsupport_manager().tile(sprite72TileId).image()
-        sprite72Tile.save(debugPath +"\\sprite72.png")
-
+        sprite72Tile = session.botsupport_manager().tile(sprite72TileId).image_ndarray()
+       
         sprite73TileId = sprite73.tiles[0].tile_identifier
-        sprite73Tile = session.botsupport_manager().tile(sprite73TileId).image()
-        sprite73Tile.save(debugPath +"\\sprite73.png")
+        sprite73Tile = session.botsupport_manager().tile(sprite73TileId).image_ndarray()
+       
+        sprite70TopHalf = numpy.concatenate((sprite70Tile, sprite71Tile), axis=1)
+        sprite70BottomHalf = numpy.concatenate((sprite72Tile, sprite73Tile), axis=1)
+        sprite70Full = numpy.concatenate((sprite70TopHalf, sprite70BottomHalf), axis=0)
+
+        sprite70FullPIL = PIL.Image.fromarray(sprite70Full)
+        sprite70FullPIL.save('Debug\\SpriteFarm\\sprite70.png')
 
         # Farm sprite8
         sprite80 = session.botsupport_manager().sprite(32)
@@ -648,20 +678,23 @@ class Debug:
         sprite83 = session.botsupport_manager().sprite(35)
 
         sprite80TileId = sprite80.tiles[0].tile_identifier
-        sprite80Tile = session.botsupport_manager().tile(sprite80TileId).image()
-        sprite80Tile.save(debugPath +"\\sprite80.png")
+        sprite80Tile = session.botsupport_manager().tile(sprite80TileId).image_ndarray()
 
         sprite81TileId = sprite81.tiles[0].tile_identifier
-        sprite81Tile = session.botsupport_manager().tile(sprite81TileId).image()
-        sprite81Tile.save(debugPath +"\\sprite81.png")
+        sprite81Tile = session.botsupport_manager().tile(sprite81TileId).image_ndarray()
 
         sprite82TileId = sprite82.tiles[0].tile_identifier
-        sprite82Tile = session.botsupport_manager().tile(sprite82TileId).image()
-        sprite82Tile.save(debugPath +"\\sprite82.png")
-
+        sprite82Tile = session.botsupport_manager().tile(sprite82TileId).image_ndarray()
+       
         sprite83TileId = sprite83.tiles[0].tile_identifier
-        sprite83Tile = session.botsupport_manager().tile(sprite83TileId).image()
-        sprite83Tile.save(debugPath +"\\sprite83.png")
+        sprite83Tile = session.botsupport_manager().tile(sprite83TileId).image_ndarray()
+       
+        sprite80TopHalf = numpy.concatenate((sprite80Tile, sprite81Tile), axis=1)
+        sprite80BottomHalf = numpy.concatenate((sprite82Tile, sprite83Tile), axis=1)
+        sprite80Full = numpy.concatenate((sprite80TopHalf, sprite80BottomHalf), axis=0)
+
+        sprite80FullPIL = PIL.Image.fromarray(sprite80Full)
+        sprite80FullPIL.save('Debug\\SpriteFarm\\sprite80.png')
 
         # Farm sprite9
         sprite90 = session.botsupport_manager().sprite(36)
@@ -670,18 +703,20 @@ class Debug:
         sprite93 = session.botsupport_manager().sprite(39)
 
         sprite90TileId = sprite90.tiles[0].tile_identifier
-        sprite90Tile = session.botsupport_manager().tile(sprite90TileId).image()
-        sprite90Tile.save(debugPath +"\\sprite90.png")
+        sprite90Tile = session.botsupport_manager().tile(sprite90TileId).image_ndarray()
 
         sprite91TileId = sprite91.tiles[0].tile_identifier
-        sprite91Tile = session.botsupport_manager().tile(sprite91TileId).image()
-        sprite91Tile.save(debugPath +"\\sprite91.png")
+        sprite91Tile = session.botsupport_manager().tile(sprite91TileId).image_ndarray()
 
         sprite92TileId = sprite92.tiles[0].tile_identifier
-        sprite92Tile = session.botsupport_manager().tile(sprite92TileId).image()
-        sprite92Tile.save(debugPath +"\\sprite92.png")
-
+        sprite92Tile = session.botsupport_manager().tile(sprite92TileId).image_ndarray()
+       
         sprite93TileId = sprite93.tiles[0].tile_identifier
-        sprite93Tile = session.botsupport_manager().tile(sprite93TileId).image()
-        sprite93Tile.save(debugPath +"\\sprite93.png")
-   
+        sprite93Tile = session.botsupport_manager().tile(sprite93TileId).image_ndarray()
+       
+        sprite90TopHalf = numpy.concatenate((sprite90Tile, sprite91Tile), axis=1)
+        sprite90BottomHalf = numpy.concatenate((sprite92Tile, sprite93Tile), axis=1)
+        sprite90Full = numpy.concatenate((sprite90TopHalf, sprite90BottomHalf), axis=0)
+
+        sprite90FullPIL = PIL.Image.fromarray(sprite90Full)
+        sprite90FullPIL.save('Debug\\SpriteFarm\\sprite90.png')

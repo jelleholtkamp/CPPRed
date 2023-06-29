@@ -643,91 +643,42 @@ class Battle:
 
 class Sprites:
     def OnScreen(session):
-        spriteList = {
-            0: "Player",
-            1: "Player",
-            2: "Player",
-            3: "Player",
-            4: "Player",
-            5: "Player",
-            6: "Player",
-            7: "Player",
-            8: "Player",
-            9: "Player",
-            10: "Player",
-            11: "Player",
-            12: "Nurse Joy",
-            13: "Nurse Joy",
-            14: "Nurse Joy",
-            15: "Nurse Joy",
-            32: "a well dressed man",
-            33: "a well dressed man",
-            34: "a well dressed man",
-            36: "Pokémon",
-            37: "Pokémon",
-            38: "Pokémon",
-            39: "Pokémon",
-            48: "the link club lady",
-            49: "the link club lady",
-            50: "the link club lady",
-            51: "the link club lady",
-            108: "a guy",
-            109: "a guy",
-            110: "a guy",
-            111: "a guy",
+        sprites = {
+            # TODO: Populate
+            'player': {
+                'down': 32768,
+                'up': 32832,
+                'sidways': 32896
  
-
+            },
+            'Nurse Joy': {
+                'down': 32960
+            },      
+            'Old man with fancy clothes': {
+                'down': 33344,
+                'sideways': 33280
+            },
+            'Old bald man': {
+                'sideways': b'\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff\x00\x00\x00\xff\x84\x84\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff::\x94\xff\x84\x84\xff\xff\x84\x84\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff\x84\x84\xff\xff\x84\x84\xff\xff\x84\x84\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff\x84\x84\xff\xff\x84\x84\xff\xff\x84\x84\xff\xff\x84\x84\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff\x84\x84\xff\xff\x84\x84\xff\xff\x84\x84\xff\xff\x84\x84\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff\x84\x84\xff\xff\x00\x00\x00\xff\x00\x00\x00\xff\x84\x84\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\xff\x84\x84\xff\xff\x84\x84\xff\xff\x84\x84\xff\xff\x84\x84\xff\xff'
+            }
         }
-        sprite0 = session.botsupport_manager().sprite(0)
-        sprite1 = session.botsupport_manager().sprite(1)
-        sprite2 = session.botsupport_manager().sprite(2)
-        sprite3 = session.botsupport_manager().sprite(3)
+        sprite00 = session.botsupport_manager().sprite(0)
+        sprite01 = session.botsupport_manager().sprite(4)
+        sprite02 = session.botsupport_manager().sprite(8)
+        sprite03 = session.botsupport_manager().sprite(12)
 
-        try:
-            npc0Name = spriteList[sprite0.tile_identifier]
-        except:
-            npc0Name = "None"
+        sprite00TileId = sprite00.tiles[0].tile_identifier
+        sprite00Tile = session.botsupport_manager().tile(sprite00TileId).data_address
+        print(sprite00Tile)
 
-        npc0 = {
-            'name': npc0Name, 
-            'topLeft': (sprite0.x, sprite0.y),
-            'topRight': (sprite1.x, sprite1.y),
-            'bottomLeft': (sprite2.x, sprite2.y),
-            'bottomRight': (sprite3.x, sprite3.y)
-        }
+        sprite01TileId = sprite01.tiles[0].tile_identifier
+        sprite01Tile = session.botsupport_manager().tile(sprite01TileId).data_address
+        print(sprite01Tile)
 
-        sprite4TileIdentifier = session.botsupport_manager().sprite(4)
-        sprite5TileIdentifier = session.botsupport_manager().sprite(5)
-        sprite6TileIdentifier = session.botsupport_manager().sprite(6)
-        sprite7TileIdentifier = session.botsupport_manager().sprite(7)
+        sprite02TileId = sprite02.tiles[0].tile_identifier
+        sprite02Tile = session.botsupport_manager().tile(sprite02TileId).data_address
+        print(sprite02Tile)
 
-    
-        test = npc1Tile = session.botsupport_manager().tile(sprite4TileIdentifier)
-    
-        return test
-
-        # npc1 = {
-        #     'name': npc1Name,
-        #     'topLeft': (sprite4.x, sprite4.y),
-        #     'topRight': (sprite5.x, sprite5.y),
-        #     'bottomLeft': (sprite6.x, sprite6.y),
-        #     'bottomRight': (sprite7.x, sprite7.y)
-        # }
-
-        # return npc0, npc1
-
-        # sprite8 = session.botsupport_manager().sprite(8)
-        # sprite9 = session.botsupport_manager().sprite(9)
-        # sprite10 = session.botsupport_manager().sprite(10)
-        # sprite11 = session.botsupport_manager().sprite(11)
-        
-
-
-        # sprite12 = session.botsupport_manager().sprite(12)
-        # sprite13 = session.botsupport_manager().sprite(13)
-        # sprite14 = session.botsupport_manager().sprite(14)
-        # sprite15 = session.botsupport_manager().sprite(15)
-        # print("NPC3T1X: ", sprite12.x, "NPC3T1Y: ", sprite12.y, "Tile Identifier: ", sprite12.tile_identifier)
-        # print("NPC3T2X: ", sprite13.x, "NPC3T2Y: ", sprite13.y, "Tile Identifier: ", sprite13.tile_identifier)
-        # print("NPC3T3X: ", sprite14.x, "NPC3T3Y: ", sprite14.y, "Tile Identifier: ", sprite14.tile_identifier)
-        # print("NPC3T4X: ", sprite15.x, "NPC3T4Y: ", sprite15.y, "Tile Identifier: ", sprite15.tile_identifier)
+        sprite03TileId = sprite03.tiles[0].tile_identifier
+        sprite03Tile = session.botsupport_manager().tile(sprite03TileId).data_address
+        print(sprite03Tile)
