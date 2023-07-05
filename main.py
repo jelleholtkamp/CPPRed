@@ -47,6 +47,10 @@ while not session.tick():
         GameData.Items.GetMemoryAddress("Poké Ball")
     elif choice == "gin":
         GameData.Items.GetItemName("4")
+    elif choice == "gpn":
+        GameData.Pokemon.GetPokemonName("1")
+    elif choice == "gpa":
+        GameData.Pokemon.GetMemoryAddress("Charmander")
 
     else:
         print("Unknown command")

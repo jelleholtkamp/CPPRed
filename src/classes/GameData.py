@@ -334,6 +334,202 @@ class PartyPokemon:
         pokemon4Move6PP = (session.get_memory_value(0xD267))
         self.Pokemon4.move6PP = pokemon4Move6PP
 
+class PokemonMemoryAddresses:
+    def __init__(self):
+        self.addresses = {
+            "0": "None",
+            "1": "Rhydon",
+            "2": "Kangaskhan",
+            "3": "Nidoran♂",
+            "4": "Clefairy",
+            "5": "Spearow",
+            "6": "Voltorb",
+            "7": "Nidoking",
+            "8": "Slowbro",
+            "9": "Ivysaur",
+            "10": "Exeggutor",
+            "11": "Lickitung",
+            "12": "Exeggcute",
+            "13": "Grimer",
+            "14": "Gengar",
+            "15": "Nidoran♀",
+            "16": "Nidoqueen",
+            "17": "Cubone",
+            "18": "Rhyhorn",
+            "19": "Lapras",
+            "20": "Arcanine",
+            "21": "Mew",
+            "22": "Gyarados",
+            "23": "Shellder",
+            "24": "Tentacool",
+            "25": "Gastly",
+            "26": "Scyther",
+            "27": "Staryu",
+            "28": "Blastoise",
+            "29": "Pinsir",
+            "30": "Tangela",
+            "31": "MissingNo.",
+            "32": "MissingNo.",
+            "33": "Growlithe",
+            "34": "Onix",
+            "35": "Fearow",
+            "36": "Pidgey",
+            "37": "Slowpoke",
+            "38": "Kadabra",
+            "39": "Graveler",
+            "40": "Chansey",
+            "41": "Machoke",
+            "42": "Mr. Mime",
+            "43": "Hitmonlee",
+            "44": "Hitmonchan",
+            "45": "Arbok",
+            "46": "Parasect",
+            "47": "Psyduck",
+            "48": "Drowzee",
+            "49": "Golem",
+            "50": "MissingNo.",
+            "51": "Magmar",
+            "52": "MissingNo.",
+            "53": "Electabuzz",
+            "54": "Magneton",
+            "55": "Koffing",
+            "56": "MissingNo.",
+            "57": "Mankey",
+            "58": "Seel",
+            "59": "Diglett",
+            "60": "Tauros",
+            "61": "MissingNo.",
+            "62": "MissingNo.",
+            "63": "MissingNo.",
+            "64": "Farfetch'd",
+            "65": "Venonat",
+            "66": "Dragonite",
+            "67": "MissingNo.",
+            "68": "MissingNo.",
+            "69": "MissingNo.",
+            "70": "Doduo",
+            "71": "Poliwag",
+            "72": "Jynx",
+            "73": "Moltres",
+            "74": "Articuno",
+            "75": "Zapdos",
+            "76": "Ditto",
+            "77": "Meowth",
+            "78": "Krabby",
+            "79": "MissingNo.",
+            "80": "MissingNo.",
+            "81": "MissingNo.",
+            "82": "Vulpix",
+            "83": "Ninetales",
+            "84": "Pikachu",
+            "85": "Raichu",
+            "86": "MissingNo.",
+            "87": "MissingNo.",
+            "88": "Dratini",
+            "89": "Dragonair",
+            "90": "Kabuto",
+            "91": "Kabutops",
+            "92": "Horsea",
+            "93": "Seadra",
+            "94": "MissingNo.",
+            "95": "MissingNo.",
+            "96": "Sandshrew",
+            "97": "Sandslash",
+            "98": "Omanyte",
+            "99": "Omastar",
+            "100": "Jigglypuff",
+            "101": "Wigglytuff",
+            "102": "Eevee",
+            "103": "Flareon",
+            "104": "Jolteon",
+            "105": "Vaporeon",
+            "106": "Machop",
+            "107": "Zubat",
+            "108": "Ekans",
+            "109": "Paras",
+            "110": "Poliwhirl",
+            "111": "Poliwrath",
+            "112": "Weedle",
+            "113": "Kakuna",
+            "114": "Beedrill",
+            "115": "MissingNo.",
+            "116": "Dodrio",
+            "117": "Primeape",
+            "118": "Dugtrio",
+            "119": "Venomoth",
+            "120": "Dewgong",
+            "121": "MissingNo.",
+            "122": "MissingNo.",
+            "123": "Caterpie",
+            "124": "Metapod",
+            "125": "Butterfree",
+            "126": "Machamp",
+            "127": "MissingNo.",
+            "128": "Golduck",
+            "129": "Hypno",
+            "130": "Golbat",
+            "131": "Mewtwo",
+            "132": "Snorlax",
+            "133": "Magikarp",
+            "134": "MissingNo.",
+            "135": "MissingNo.",
+            "136": "Muk",
+            "137": "MissingNo.",
+            "138": "Kingler",
+            "139": "Cloyster",
+            "140": "MissingNo.",
+            "141": "Electrode",
+            "142": "Clefable",
+            "143": "Weezing",
+            "144": "Persian",
+            "145": "Marowak",
+            "146": "MissingNo.",
+            "147": "Haunter",
+            "148": "Abra",
+            "149": "Alakazam",
+            "150": "Pidgeotto",
+            "151": "Pidgeot",
+            "152": "Starmie",
+            "153": "Bulbasaur",
+            "154": "Venusaur",
+            "155": "Tentacruel",
+            "156": "MissingNo.",
+            "157": "Goldeen",
+            "158": "Seaking",
+            "159": "MissingNo.",
+            "160": "MissingNo.",
+            "161": "MissingNo.",
+            "162": "MissingNo.",
+            "163": "Ponyta",
+            "164": "Rapidash",
+            "165": "Rattata",
+            "166": "Raticate",
+            "167": "Nidorino",
+            "168": "Nidorina",
+            "169": "Geodude",
+            "170": "Porygon",
+            "171": "Aerodactyl",
+            "172": "MissingNo.",
+            "173": "Magnemite",
+            "174": "MissingNo.",
+            "175": "MissingNo.",
+            "176": "Charmander",
+            "177": "Squirtle",
+            "178": "Charmeleon",
+            "179": "Wartortle",
+            "180": "Charizard",
+            "181": "MissingNo.",
+            "182": "MissingNo.",
+            "183": "MissingNo.",
+            "184": "MissingNo.",
+            "185": "Oddish",
+            "186": "Gloom",
+            "187": "Vileplume",
+            "188": "Bellsprout",
+            "189": "Weepinbell",
+            "190": "Victreebel"
+        }
+
 class ItemMemoryAddresses:
     def __init__(self):
         self.addresses = {
@@ -409,126 +605,137 @@ class Items:
         memoryAdresses = ItemMemoryAddresses() 
         print(memoryAdresses.addresses[memoryAddress])
     
-    def Update(self, session): 
-        bagItem1Index = (session.get_memory_value(0xD31E))
-        bagItem1Qty = (session.get_memory_value(0xD31F))
-        bagItem1Name = PokemonData.Items(bagItem1Index).name
-        self.item1 = bagItem1Name
-        self.item1Quantity = bagItem1Qty
+    # def Update(self, session): 
+    #     bagItem1Index = (session.get_memory_value(0xD31E))
+    #     bagItem1Qty = (session.get_memory_value(0xD31F))
+    #     bagItem1Name = PokemonData.Items(bagItem1Index).name
+    #     self.item1 = bagItem1Name
+    #     self.item1Quantity = bagItem1Qty
 
-        bagItem2Index = (session.get_memory_value(0xD320))
-        bagItem2Qty = (session.get_memory_value(0xD321))
-        bagItem2Name = PokemonData.Items(bagItem2Index).name
-        self.item2 = bagItem2Name
-        self.item2Quantity = bagItem2Qty
+    #     bagItem2Index = (session.get_memory_value(0xD320))
+    #     bagItem2Qty = (session.get_memory_value(0xD321))
+    #     bagItem2Name = PokemonData.Items(bagItem2Index).name
+    #     self.item2 = bagItem2Name
+    #     self.item2Quantity = bagItem2Qty
 
-        bagItem3Index = (session.get_memory_value(0xD322))
-        bagItem3Qty = (session.get_memory_value(0xD323))
-        bagItem3Name = PokemonData.Items(bagItem3Index).name
-        self.item3 = bagItem3Name
-        self.item3Quantity = bagItem3Qty
+    #     bagItem3Index = (session.get_memory_value(0xD322))
+    #     bagItem3Qty = (session.get_memory_value(0xD323))
+    #     bagItem3Name = PokemonData.Items(bagItem3Index).name
+    #     self.item3 = bagItem3Name
+    #     self.item3Quantity = bagItem3Qty
 
-        bagItem4Index = (session.get_memory_value(0xD324))
-        bagItem4Qty = (session.get_memory_value(0xD325))
-        bagItem4Name = PokemonData.Items(bagItem4Index).name
-        self.item4 = bagItem4Name
-        self.item4Quantity = bagItem4Qty
+    #     bagItem4Index = (session.get_memory_value(0xD324))
+    #     bagItem4Qty = (session.get_memory_value(0xD325))
+    #     bagItem4Name = PokemonData.Items(bagItem4Index).name
+    #     self.item4 = bagItem4Name
+    #     self.item4Quantity = bagItem4Qty
 
-        bagItem5Index = (session.get_memory_value(0xD326))
-        bagItem5Qty = (session.get_memory_value(0xD327))
-        bagItem5Name = PokemonData.Items(bagItem4Index).name
-        self.item5 = bagItem5Name
-        self.item5Quantity = bagItem5Qty
+    #     bagItem5Index = (session.get_memory_value(0xD326))
+    #     bagItem5Qty = (session.get_memory_value(0xD327))
+    #     bagItem5Name = PokemonData.Items(bagItem4Index).name
+    #     self.item5 = bagItem5Name
+    #     self.item5Quantity = bagItem5Qty
 
-        bagItem6Index = (session.get_memory_value(0xD328))
-        bagItem6Qty = (session.get_memory_value(0xD329))
-        bagItem6Name = PokemonData.Items(bagItem6Index).name
-        self.item6 = bagItem6Name
-        self.item6Quantity = bagItem6Qty
+    #     bagItem6Index = (session.get_memory_value(0xD328))
+    #     bagItem6Qty = (session.get_memory_value(0xD329))
+    #     bagItem6Name = PokemonData.Items(bagItem6Index).name
+    #     self.item6 = bagItem6Name
+    #     self.item6Quantity = bagItem6Qty
 
-        bagItem7Index = (session.get_memory_value(0xD32A))
-        bagItem7Qty = (session.get_memory_value(0xD32B))
-        bagItem7Name = PokemonData.Items(bagItem7Index).name
-        self.item7 = bagItem7Name
-        self.item7Quantity = bagItem7Qty
+    #     bagItem7Index = (session.get_memory_value(0xD32A))
+    #     bagItem7Qty = (session.get_memory_value(0xD32B))
+    #     bagItem7Name = PokemonData.Items(bagItem7Index).name
+    #     self.item7 = bagItem7Name
+    #     self.item7Quantity = bagItem7Qty
 
-        bagItem8Index = (session.get_memory_value(0xD32C))
-        bagItem8Qty = (session.get_memory_value(0xD32D))
-        bagItem8Name = PokemonData.Items(bagItem8Index).name
-        self.item8 = bagItem8Name
-        self.item8Quantity = bagItem8Qty
+    #     bagItem8Index = (session.get_memory_value(0xD32C))
+    #     bagItem8Qty = (session.get_memory_value(0xD32D))
+    #     bagItem8Name = PokemonData.Items(bagItem8Index).name
+    #     self.item8 = bagItem8Name
+    #     self.item8Quantity = bagItem8Qty
 
-        bagItem9Index = (session.get_memory_value(0xD32E))
-        bagItem9Qty = (session.get_memory_value(0xD32F))
-        bagItem9Name = PokemonData.Items(bagItem9Index).name
-        self.item9 = bagItem9Name
-        self.item9Quantity = bagItem9Qty
+    #     bagItem9Index = (session.get_memory_value(0xD32E))
+    #     bagItem9Qty = (session.get_memory_value(0xD32F))
+    #     bagItem9Name = PokemonData.Items(bagItem9Index).name
+    #     self.item9 = bagItem9Name
+    #     self.item9Quantity = bagItem9Qty
 
-        bagItem10Index = (session.get_memory_value(0xD330))
-        bagItem10Qty = (session.get_memory_value(0xD331))
-        bagItem10Name = PokemonData.Items(bagItem10Index).name
-        self.item10 = bagItem10Name
-        self.item10Quantity = bagItem10Qty
+    #     bagItem10Index = (session.get_memory_value(0xD330))
+    #     bagItem10Qty = (session.get_memory_value(0xD331))
+    #     bagItem10Name = PokemonData.Items(bagItem10Index).name
+    #     self.item10 = bagItem10Name
+    #     self.item10Quantity = bagItem10Qty
         
-        bagItem11Index = (session.get_memory_value(0xD332))
-        bagItem11Qty = (session.get_memory_value(0xD333))
-        bagItem11Name = PokemonData.Items(bagItem11Index).name
-        self.item11 = bagItem11Name
-        self.item11Quantity = bagItem11Qty
+    #     bagItem11Index = (session.get_memory_value(0xD332))
+    #     bagItem11Qty = (session.get_memory_value(0xD333))
+    #     bagItem11Name = PokemonData.Items(bagItem11Index).name
+    #     self.item11 = bagItem11Name
+    #     self.item11Quantity = bagItem11Qty
 
-        bagItem12Index = (session.get_memory_value(0xD334))
-        bagItem12Qty = (session.get_memory_value(0xD335))
-        bagItem12Name = PokemonData.Items(bagItem12Index).name
-        self.item12 = bagItem12Name
-        self.item12Quantity = bagItem12Qty
+    #     bagItem12Index = (session.get_memory_value(0xD334))
+    #     bagItem12Qty = (session.get_memory_value(0xD335))
+    #     bagItem12Name = PokemonData.Items(bagItem12Index).name
+    #     self.item12 = bagItem12Name
+    #     self.item12Quantity = bagItem12Qty
 
-        bagItem13Index = (session.get_memory_value(0xD336))
-        bagItem13Qty = (session.get_memory_value(0xD337))
-        bagItem13Name = PokemonData.Items(bagItem13Index).name
-        self.item13 = bagItem13Name
-        self.item13Quantity = bagItem13Qty
+    #     bagItem13Index = (session.get_memory_value(0xD336))
+    #     bagItem13Qty = (session.get_memory_value(0xD337))
+    #     bagItem13Name = PokemonData.Items(bagItem13Index).name
+    #     self.item13 = bagItem13Name
+    #     self.item13Quantity = bagItem13Qty
 
-        bagItem14Index = (session.get_memory_value(0xD338))
-        bagItem14Qty = (session.get_memory_value(0xD339))
-        bagItem14Name = PokemonData.Items(bagItem14Index).name
-        self.item14 = bagItem14Name
-        self.item14Quantity = bagItem14Qty
+    #     bagItem14Index = (session.get_memory_value(0xD338))
+    #     bagItem14Qty = (session.get_memory_value(0xD339))
+    #     bagItem14Name = PokemonData.Items(bagItem14Index).name
+    #     self.item14 = bagItem14Name
+    #     self.item14Quantity = bagItem14Qty
 
-        bagItem15Index = (session.get_memory_value(0xD33A))
-        bagItem15Qty = (session.get_memory_value(0xD33B))
-        bagItem15Name = PokemonData.Items(bagItem15Index).name
-        self.item15 = bagItem15Name
-        self.item15Quantity = bagItem15Qty
+    #     bagItem15Index = (session.get_memory_value(0xD33A))
+    #     bagItem15Qty = (session.get_memory_value(0xD33B))
+    #     bagItem15Name = PokemonData.Items(bagItem15Index).name
+    #     self.item15 = bagItem15Name
+    #     self.item15Quantity = bagItem15Qty
 
-        bagItem16Index = (session.get_memory_value(0xD33C))
-        bagItem16Qty = (session.get_memory_value(0xD33D))
-        bagItem16Name = PokemonData.Items(bagItem16Index).name
-        self.item16 = bagItem16Name
-        self.item16Quantity = bagItem16Qty
+    #     bagItem16Index = (session.get_memory_value(0xD33C))
+    #     bagItem16Qty = (session.get_memory_value(0xD33D))
+    #     bagItem16Name = PokemonData.Items(bagItem16Index).name
+    #     self.item16 = bagItem16Name
+    #     self.item16Quantity = bagItem16Qty
 
-        bagItem17Index = (session.get_memory_value(0xD33E))
-        bagItem17Qty = (session.get_memory_value(0xD33F))
-        bagItem17Name = PokemonData.Items(bagItem17Index).name
-        self.item17 = bagItem17Name
-        self.item17Quantity = bagItem17Qty
+    #     bagItem17Index = (session.get_memory_value(0xD33E))
+    #     bagItem17Qty = (session.get_memory_value(0xD33F))
+    #     bagItem17Name = PokemonData.Items(bagItem17Index).name
+    #     self.item17 = bagItem17Name
+    #     self.item17Quantity = bagItem17Qty
 
-        bagItem18Index = (session.get_memory_value(0xD340))
-        bagItem18Qty = (session.get_memory_value(0xD341))
-        bagItem18Name = PokemonData.Items(bagItem18Index).name
-        self.item18 = bagItem18Name
-        self.item18Quantity = bagItem18Qty
+    #     bagItem18Index = (session.get_memory_value(0xD340))
+    #     bagItem18Qty = (session.get_memory_value(0xD341))
+    #     bagItem18Name = PokemonData.Items(bagItem18Index).name
+    #     self.item18 = bagItem18Name
+    #     self.item18Quantity = bagItem18Qty
         
-        bagItem19Index = (session.get_memory_value(0xD342))
-        bagItem19Qty = (session.get_memory_value(0xD343))
-        bagItem19Name = PokemonData.Items(bagItem4Index).name
-        self.item19 = bagItem19Name
-        self.item19Quantity = bagItem19Qty
+    #     bagItem19Index = (session.get_memory_value(0xD342))
+    #     bagItem19Qty = (session.get_memory_value(0xD343))
+    #     bagItem19Name = PokemonData.Items(bagItem4Index).name
+    #     self.item19 = bagItem19Name
+    #     self.item19Quantity = bagItem19Qty
 
-        bagItem20Index = (session.get_memory_value(0xD344))
-        bagItem20Qty = (session.get_memory_value(0xD345))
-        bagItem20Name = PokemonData.Items(bagItem4Index).name
-        self.item20 = bagItem20Name
-        self.item20Quantity = bagItem20Qty
+    #     bagItem20Index = (session.get_memory_value(0xD344))
+    #     bagItem20Qty = (session.get_memory_value(0xD345))
+    #     bagItem20Name = PokemonData.Items(bagItem4Index).name
+    #     self.item20 = bagItem20Name
+    #     self.item20Quantity = bagItem20Qty
+
+class Pokemon:
+    def GetMemoryAddress(pokemonName):
+        memoryAdresses = PokemonMemoryAddresses()
+        for key, value in memoryAdresses.addresses.items():
+            if value == pokemonName:
+                print(key)
+    
+    def GetPokemonName(memoryAddress):
+        memoryAdresses = PokemonMemoryAddresses() 
+        print(memoryAdresses.addresses[memoryAddress])
 
 class ActivePokemon:
     def __init__(self):
