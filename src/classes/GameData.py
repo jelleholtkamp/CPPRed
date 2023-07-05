@@ -599,12 +599,67 @@ class Items:
         memoryAdresses = ItemMemoryAddresses()
         for key, value in memoryAdresses.addresses.items():
             if value == itemName:
-                print(key)
+                return key
     
     def GetItemName(memoryAddress):
         memoryAdresses = ItemMemoryAddresses() 
-        print(memoryAdresses.addresses[memoryAddress])
+        return memoryAdresses.addresses[memoryAddress]
     
+    def SetBagItem(session, index, item, quantity):
+        bagIndexAddresses = {
+            "0": 54046,
+            "1": 54048,
+            "2": 54050,
+            "3": 54052,
+            "4": 54054,
+            "5": 54056,
+            "6": 54058,
+            "7": 54060,
+            "8": 54062,
+            "9": 54064,
+            "10": 54066,
+            "11": 54068,
+            "12": 54070,
+            "13": 54072,
+            "14": 54074,
+            "15": 54076,
+            "16": 54078,
+            "17": 54080,
+            "18": 54082,
+            "19": 54084,
+        }
+        bagQuantityAddresses = {
+            "0": 54047,
+            "1": 54049,
+            "2": 54051,
+            "3": 54053,
+            "4": 54055,
+            "5": 54057,
+            "6": 54059,
+            "7": 54061,
+            "8": 54063,
+            "9": 54065,
+            "10": 54067,
+            "11": 54069,
+            "12": 54071,
+            "13": 54073,
+            "14": 54075,
+            "15": 54077,
+            "16": 54079,
+            "17": 54081,
+            "18": 54083,
+            "19": 54085,
+        }
+        indexAddress = int(bagIndexAddresses[index])
+        itemAddress = int(Items.GetMemoryAddress(item))
+        quantityAddress = int(bagQuantityAddresses[index])
+        
+        logging.info("Setting item at index " + str(index) + "/" + str(indexAddress) + " to " + item + " with quantity " + str(quantity))
+        session.set_memory_value(indexAddress, itemAddress)
+        session.set_memory_value(quantityAddress, quantity)
+
+
+
     # def Update(self, session): 
     #     bagItem1Index = (session.get_memory_value(0xD31E))
     #     bagItem1Qty = (session.get_memory_value(0xD31F))

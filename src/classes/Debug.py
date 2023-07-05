@@ -396,14 +396,3 @@ class Debug:
             outfile.write(spriteMap)
         existingImage = PIL.Image.fromarray(existingImage)
         existingImage.save(spriteMapPath)
-
-    def SetInventoryItem0(session, index, item, quantity = 1, ):
-        if index < 0 or index > 19:
-            raise Exception('Index must be between 0 and 19')
-        if quantity < 1 or quantity > 99:
-            raise Exception('Quantity must be between 1 and 99')
-        if item < 0 or item > 255:
-            raise Exception('Item must be between 0 and 255')
-        itemHex = GameData.Items[item]
-        session.set_memory_value(0xD31E)
-    

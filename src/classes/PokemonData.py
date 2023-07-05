@@ -1,20 +1,3 @@
-class PokemonSpecies:
-    def Get(decimalRamAdddress):
-        species = {
-            0: None,
-            176: "Charmander",
-            112 : "Weedle",
-            113 : "Kakuna",
-            114 : "Beedrill",
-            36 : "Pidgey",
-            3 : "Nidoran♂",
-            165 : "Rattata",
-            255: None
-        }
-        return species[decimalRamAdddress]
-
-
-
 class MoveMemoryAddresses:
     _0 = "None"
     _10 = "Scratch"

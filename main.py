@@ -51,7 +51,11 @@ while not session.tick():
         GameData.Pokemon.GetPokemonName("1")
     elif choice == "gpa":
         GameData.Pokemon.GetMemoryAddress("Charmander")
-
+    elif choice == "sbi":
+        itemChoice = input("Enter item name: ")
+        quantityChoice = int(input("Enter quantity (0-99)"))
+        indexChoice = input("Enter index (0-19, first item is 0)")
+        GameData.Items.SetBagItem(session, indexChoice, itemChoice, quantityChoice)
     else:
         print("Unknown command")
 
