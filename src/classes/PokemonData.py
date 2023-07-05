@@ -13,13 +13,7 @@ class PokemonSpecies:
         }
         return species[decimalRamAdddress]
 
-class ItemsMemoryAddresses:
-    _0 = "None"
-    _4 = "Poké Ball"
-    _5 = "Town Map"
-    _11 = "Antidote"
-    _234 = "TM34"
-    _255 = "Cancel"
+
 
 class MoveMemoryAddresses:
     _0 = "None"

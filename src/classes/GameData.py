@@ -334,49 +334,81 @@ class PartyPokemon:
         pokemon4Move6PP = (session.get_memory_value(0xD267))
         self.Pokemon4.move6PP = pokemon4Move6PP
 
-class Items:
+class ItemMemoryAddresses:
     def __init__(self):
-        self.item1 = 'None'
-        self.item1Quantity = 0
-        self.item2 = 'None'
-        self.item2Quantity = 0
-        self.item3 = 'None'
-        self.item3Quantity = 0
-        self.item4 = 'None'
-        self.item4Quantity = 0
-        self.item5 = 'None'
-        self.item5Quantity = 0
-        self.item6 = 'None'
-        self.item6Quantity = 0
-        self.item7 = 'None'
-        self.item7Quantity = 0
-        self.item8 = 'None'
-        self.item8Quantity = 0
-        self.item9 = 'None'
-        self.item9Quantity = 0
-        self.item10 = 'None'
-        self.item10Quantity = 0
-        self.item11 = 'None'
-        self.item11Quantity = 0
-        self.item12 = 'None'
-        self.item12Quantity = 0
-        self.item13 = 'None'
-        self.item13Quantity = 0
-        self.item14 = 'None'
-        self.item14Quantity = 0
-        self.item15 = 'None'
-        self.item15Quantity = 0
-        self.item16 = 'None'
-        self.item16Quantity = 0
-        self.item17 = 'None'
-        self.item17Quantity = 0
-        self.item18 = 'None'
-        self.item18Quantity = 0
-        self.item19 = 'None'
-        self.item19Quantity = 0
-        self.item20 = 'None'
-        self.item20Quantity = 0
-        
+        self.addresses = {
+            "0": "None",
+            "1": "Master Ball",
+            "2": "Ultra Ball",
+            "3": "Great Ball",
+            "4": "Poké Ball",
+            "5": "Town Map",
+            "6": "Bicycle",
+            "7": "?????",
+            "8": "Safari Ball",
+            "9": "Pokédex",
+            "10": "Moon Stone",
+            "11": "Antidote",
+            "12": "Burn Heal",
+            "13": "Ice Heal",
+            "14": "Awakening",
+            "15": "Parlyz Heal",
+            "16": "Full Restore",
+            "17": "Max Potion",
+            "18": "Hyper Potion",
+            "19": "Super Potion",
+            "20": "Potion",
+            "21": "BoulderBadge",
+            "22": "CascadeBadge",
+            "23": "ThunderBadge",
+            "24": "RainbowBadge",
+            "25": "SoulBadge",
+            "26": "MarshBadge",
+            "27": "VolcanoBadge",
+            "28": "EarthBadge",
+            "29": "Escape Rope",
+            "30": "Repel",
+            "31": "Old Amber",
+            "32": "Fire Stone",
+            "33": "Thunderstone",
+            "34": "Water Stone",
+            "35": "HP Up",
+            "36": "Protein",
+            "37": "Iron",
+            "38": "Carbos",
+            "39": "Calcium",
+            "40": "Rare Candy",
+            "41": "Dome Fossil",
+            "42": "Helix Fossil",
+            "43": "Secret Key",
+            "44": "?????",
+            "45": "Bike Voucher",
+            "46": "X Accuracy",
+            "47": "Leaf Stone",
+            "48": "Card Key",
+            "49": "Nugget",
+            "50": "PP Up",
+            "51": "Poké Doll",
+            "52": "Full Heal",
+            "53": "Revive",
+            "54": "Max Revive",
+            "55": "Guard Spec.",
+            "56": "Super Repel",
+            "57": "Max Repel"
+        }
+
+
+class Items:
+    def GetMemoryAddress(itemName):
+        memoryAdresses = ItemMemoryAddresses()
+        for key, value in memoryAdresses.addresses.items():
+            if value == itemName:
+                print(key)
+    
+    def GetItemName(memoryAddress):
+        memoryAdresses = ItemMemoryAddresses() 
+        print(memoryAdresses.addresses[memoryAddress])
+    
     def Update(self, session): 
         bagItem1Index = (session.get_memory_value(0xD31E))
         bagItem1Qty = (session.get_memory_value(0xD31F))

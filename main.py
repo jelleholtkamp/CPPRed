@@ -43,6 +43,11 @@ while not session.tick():
         Debug.Debug.NewSpriteSheet()
     elif choice == "uss":
         Debug.Debug.UpdateSpriteSheet()
+    elif choice == "gia":
+        GameData.Items.GetMemoryAddress("Poké Ball")
+    elif choice == "gin":
+        GameData.Items.GetItemName("4")
+
     else:
         print("Unknown command")
 
